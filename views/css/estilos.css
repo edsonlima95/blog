@@ -1,0 +1,156 @@
+body {background: #f6f6f6; margin: 0 80px;}
+
+.back-dark, .back-dark-2 {position: fixed; width: 100%; height: 100%; background: rgba(0,0,0, 0.2); display: none}
+.back-dark-2 {z-index: 102}
+.right {float: right}
+
+/*TITULOS.*/ 
+section.conteudo-esquerdo h3 {border-bottom: 4px solid #81d742; margin-bottom: 20px;}
+section.conteudo-esquerdo h3 span {background-color: #81d742; padding: 7px 7px 0px 7px; color: #fff; font-weight: initial}
+section.conteudo-esquerdo  .cat2 h3.titulo-cat2 {border-bottom: 4px solid #bd4cce}
+section.conteudo-esquerdo  .cat2 h3.titulo-cat2 span {background-color: #bd4cce;}
+section.conteudo-esquerdo  .cat3 h3.titulo-cat3 {border-bottom: 4px solid #777fce}
+section.conteudo-esquerdo  .cat3 h3.titulo-cat3 span {background-color: #777fce}
+
+/*MAIN;*/
+main {width: 100%; background: #fff; margin: auto;}
+
+/*HEADER.*/
+header#cabecalho .logo, header#cabecalho .busca  {background: #fff; height: 180px;}
+header#cabecalho .logo p {margin: 55px; font-size: 50px; display: none}
+header#cabecalho .logo p strong {color: #289dcc}
+header#cabecalho .pesquisa {margin: 0px 0px 0px 140px; line-height: 180px; float: left}
+header#cabecalho .pesquisa input[type="search"], header#cabecalho .pesquisa input[type="submit"] {height: 40px}
+header#cabecalho .pesquisa input[type="search"] {border: 3px solid #eaeaea; width: 200px; color: #555; padding: 10px}
+header#cabecalho .pesquisa span {position: relative; left: -38px; color: #ccc; cursor: pointer; padding: 10px; width: 40px; height: 40px}
+header#cabecalho .midias-sociais {border-bottom: 5px solid #232323; padding: 7px 0 0 15px; width: 100%; background: #fff; height: 40px}
+header#cabecalho .midias-sociais span {color: #555555;}
+header#cabecalho .midias-sociais ul {list-style: none; float: right;}
+header#cabecalho .midias-sociais ul li {display: inline-block; float: right; margin-right: 15px}
+header#cabecalho .midias-sociais ul li a i {color: #555555}
+
+
+/*MENU DESKTOP.*/
+nav#menu-desk {width: 100%; height: 60px; background: #232323; display: table}
+nav#menu-desk ul {list-style: none; color: #fff; margin: 0 80px;}
+nav#menu-desk ul li {width: 100px; float: left; line-height: 60px; position: relative; text-align: center}
+nav#menu-desk ul li a {text-decoration: none; color: #fff; text-transform: uppercase; display: block;}
+nav#menu-desk ul li a:hover {background: #289dcc;}
+nav#menu-desk ul li ul.sub-menu-site {display: none; position: absolute; z-index: 91}
+nav#menu-desk ul li ul.sub-menu-site li {background: #232323; margin-left: -80px;}
+nav#menu-desk .botao-open {width: 40px; height: 40px; background: #232323; border-radius: 3px; border: 1px solid #fff; line-height: 60px; margin: 10px; float: right; display: none}
+nav#menu-desk .botao-open span i.fa-bars {color: #fff; position: relative;top: 2px; left: 5px; cursor: pointer}
+nav#menu-desk .botao-pesquisa {width: 40px; height: 40px; line-height: 60px; margin: 10px; float: right; display: none}
+nav#menu-desk .botao-pesquisa i.fa-search {color: #fff; position: relative; top: 2px; cursor: pointer;}
+/*MENU MOBILE.*/
+nav#menu-mobile ul {background: #232323; width: 200px; padding: 10px; position: fixed; z-index: 100; height: 100%; margin: 0; display: none}
+nav#menu-mobile ul li {display: block; text-align: center; margin: 20px 0 20px 0}
+nav#menu-mobile ul .close-menu {float: right}
+nav#menu-mobile ul .close-menu {float: right; text-decoration: none; color: #fff}
+
+/*SLIDE E NOTICIAS.*/
+#wowslider-container1 .ws_images h1 {margin-bottom: 10px}
+#wowslider-container1 .ws_images p {font-size: 14px}
+#wowslider-container1 .ws_images a {color: #fff}
+
+#slide-noticia {padding: 10px 10px 10px 15px; background: #fff}
+#slide-noticia .slide {padding-right: 10px}
+#slide-noticia .noticias-do-slide {position: relative; margin-bottom: 5px};
+
+/*CONTEUDO PRINCIPAL.*/
+section::before, section::after {
+    content: "";
+    display: table;
+}
+/*Home.*/
+main section.conteudo-esquerdo, main aside.conteudo-direito {background: #fff; padding: 15px;}
+/*CATEGORIAS 1.*/
+main section.conteudo-esquerdo .bloco1 img {width: 100%; height:200px}
+main section.conteudo-esquerdo .bloco1-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 10px; height: 173px}
+main section.conteudo-esquerdo .bloco1-conteudo a, main section.conteudo-esquerdo .bloco2-conteudo a {color: #333333; text-decoration: none; font-weight: initial}
+main section.conteudo-esquerdo .bloco1-conteudo a:hover {color: #289dcc}
+main section.conteudo-esquerdo .bloco1-conteudo p {color: #696565;}
+main section.conteudo-esquerdo .bloco1-conteudo time, main section.conteudo-esquerdo .bloco1-conteudo p.criado {color: #888888; font-size: 13px; float: left; margin: 15px 15px 15px 0px}
+/*CATEGORIAS 1 4artigos.*/
+main section.conteudo-esquerdo .bloco2 img {float: left; margin-left: 10px; width:100%; height:90px}
+main section.conteudo-esquerdo .bloco2-conteudo,aside.conteudo-direito .top-post-views .bloco2-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 10px 10px 10px 20px; margin-bottom: 14px}
+main section.conteudo-esquerdo .bloco2-conteudo time, main section.conteudo-esquerdo .bloco2-conteudo p {color: #888888; float: left; margin-right: 10px; font-size: 13px} 
+main section.conteudo-esquerdo .bloco2-conteudo h1 {margin-bottom: 8px}
+main section.conteudo-esquerdo .bloco2-conteudo a:hover {color: #289dcc}
+main section.conteudo-esquerdo .bloco2-conteudo a {font-size: 20px;}
+
+/*CATEGORIAS 2.*/
+main section.conteudo-esquerdo .cat2 h3 {margin-top: 50px}
+
+/*CATEGORIAS 3.*/
+main section.conteudo-esquerdo .cat3 h3 {margin-top: 50px; margin-left: 10px}
+main section.conteudo-esquerdo .cat3 img {width: 98%; margin-left: 10px;}
+main section.conteudo-esquerdo .cat3 .bloco1-conteudo {margin-bottom: 20px; margin-left: 11px;}
+main section.conteudo-esquerdo .art3 img {margin-left: 0px}
+main section.conteudo-esquerdo .art3 .bloco2-conteudo {padding-left: 10px;}
+main section.conteudo-esquerdo .art4 img {margin-left: 10px}
+main section.conteudo-esquerdo .art4 .bloco2-conteudo {margin-left: 0px; padding-left: 20px}
+
+/*ARTIGO SINGLE.*/
+section.artigo h1 {font-family: sans-serif; font-weight: normal; border: none; margin: 0  0 20px 0}
+section.artigo img {width: 100%; height: 500px}
+section.artigo .artigo-conteudo {padding: 10px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); margin-right: 1px; margin-bottom: 50px; position: relative}
+section.artigo .artigo-conteudo h2 {margin: 40px 0px 20px; color: #333333; font-size: 25px}
+section.artigo .artigo-conteudo p.conteudo {color: #747171; font-size: 20px}
+section.artigo .artigo-conteudo h2 {color: #333333; font-weight: normal}
+section.artigo .artigo-conteudo time {position: absolute; top: 10px; color: #888888;}
+section.artigo .artigo-conteudo p.criador {position: absolute; top: 10px; color: #888888; left: 130px}
+
+/*EMPRESA SINGLE.*/
+section.artigo ul.descricao-empresa {list-style: none; background: #f9f1f166; padding: 10px; margin-bottom: 20px; border-radius: 10px}
+section.artigo ul.descricao-empresa li {margin-bottom: 10px; font-weight: bold}
+
+/*GALERIA.*/
+section.artigo .galeria {margin: 20px 7px 0 0; width: 24%;}
+section.artigo .galeria img {height: 140px; width: 100%}
+section.artigo  h3.titulo-galeria {margin-top: 50px; border-bottom: 4px solid #099e98}
+section.artigo  h3.titulo-galeria span {background: #099e98}
+
+/*BOTAO IR TOPO.*/
+#topo {position: fixed;float: right;top: 550px; cursor: pointer; display: none; right: 15px; background: rgba(0,0,0, 0.3); width: 50px; height: 50px;
+border-radius: 50%;}
+#topo i {color: #fff; margin: 10px; margin-top: 8px}
+
+/*CATEGORIAS POSTS.*/
+main section.categorias {padding-left: 70px}
+main section.categorias .bloco1 {width: 23%; margin-right: 10px; margin-bottom: 20px}
+main section.categorias .bloco1 .bloco1-conteudo {word-break: break-all;}
+main section.categorias .bloco1 .bloco1-conteudo time {margin: 0 10px 0 0;}
+main section.categorias .bloco1 .bloco1-conteudo p {margin: 10px 0}
+main section.categorias .bloco1 .bloco1-conteudo p.criado {margin: 0px;}
+main section.categorias span {width: 100%; margin-bottom: 20px; float: left; font-size: 30px;}
+
+/*PAGINACAO.*/
+main .paginator {float: left; background: #373737;}
+main .paginator a {color: #fff; font-size: 25px; padding: 0 10px; text-decoration: none}
+main .paginator a:hover {background: #289dcc;}
+main .paginator a.atv {color: #373737; background: #289dcc}
+
+/*ASIDE.*/
+aside.conteudo-direito section {margin-bottom: 20px}
+aside.conteudo-direito h3 {border-bottom: 4px solid #289dcc; margin-bottom: 20px; }
+aside.conteudo-direito h3 span {background-color: #289dcc; padding: 7px 7px 0px 7px; width: 100%; color: #fff; font-weight: initial}
+aside.conteudo-direito .bloco2-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 10px 10px 10px 20px; margin-bottom: 14px}
+aside.conteudo-direito img {float: left; margin-left: 10px; width:100%; height:90px}
+aside.conteudo-direito .bloco2-conteudo time, aside.conteudo-direito .bloco2-conteudo p {color: #888888; float: left; margin-right: 10px; font-size: 13px} 
+aside.conteudo-direito .bloco2-conteudo h1 {margin-bottom: 8px}
+aside.conteudo-direito .bloco2-conteudo a:hover {color: #289dcc}
+aside.conteudo-direito .bloco2-conteudo a {color: #333333; text-decoration: none; font-weight: initial}
+aside.conteudo-direito .top-empresas {position: relative}
+aside.conteudo-direito .top-empresas ul {display: none; position: absolute; top: 46px; left: -262px; max-width: 265px; background: rgba(0,0,0, 0.4); color: #B4B3B3; padding: 10px; border-radius: 10px; list-style: none}
+aside.conteudo-direito .top-empresas ul li {margin-bottom: 10px}
+
+/*FOOTER.*/
+footer {background: #232323; padding: 10px;}
+footer h1 {text-align: center; color: #289dcc; border-bottom: 2px solid #666; margin-bottom: 15px}
+footer .sobre, footer .links, footer .recomendo {padding: 10px; height: 300px; color: #B4B3B3}
+footer .sobre h1 {color: #898888;}
+footer .sobre h1 span {color: #289dcc}
+
+.direitos {background: #373737; padding: 10px 20px; font-size: 10px}
+.direitos .feito-por h2 {float: right}
