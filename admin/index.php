@@ -1,6 +1,6 @@
 <?php
 ob_flush();
-session_start();
+//session_start();
 
 use app\helper\Logar;
 use app\helper\funcoes;

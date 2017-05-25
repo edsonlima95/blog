@@ -8,6 +8,7 @@ use app\conn\update;
 use app\conn\delete;
 use app\helper\funcoes;
 use app\helper\files;
+use app\helper\galeria;
 
 class empresa {
 
@@ -45,7 +46,25 @@ class empresa {
         endif;
     }
     
-    
+    //DELETA O EMPRESA.
+    public function deletaEmpresa($id) {
+        $this->id = $id;
+        
+        $readEmp = new read();
+        $readEmp->ExeRead('empresas',"WHERE id = :id","id={$this->id}");
+        if($readEmp->getRowCount() > 0):
+            $readGal = new read();
+            $readGal->ExeRead('galeria_empresas',"WHERE id_post = :id","id={$this->id}");
+            if($readGal->getResultado()):
+             $galeria = new galeria();
+             $galeria->setGaleria('galeria_empresas');
+             $galeria->deleteGaleria($this->id);
+             else:
+                 
+            endif;
+        endif;
+        $this->deleta();
+    }
 
     //GETTER E SETTERS.
     function getResultado() {
@@ -117,6 +136,18 @@ class empresa {
             $this->error = 'Os dados foram atualizados com sucesso.';
         endif;
     }
+    
+    //DELETA
+    private function deleta() {
+        $deletaEmp = new delete();
+        $deletaEmp->ExeDelete(self::tabela,"WHERE id = :id","id={$this->id}");
+        if ($deletaEmp->getResultado()):
+            $this->resultado = true;
+            $this->error = 'Os dados foram deletados com sucesso.';
+             header('refresh: 3; url=index?exe=empresas/index');
+        endif;
+    }
+
     
     
 }

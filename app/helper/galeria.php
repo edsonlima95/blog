@@ -12,8 +12,12 @@ class galeria {
     private $tabela = 'posts';
     private $galeria = 'galeria_posts';
     private $error;
+    private $resultado;
     
-    
+    public function getResultado() {
+        return $this->resultado;
+    }
+
    public function getError() {
         return $this->error;
     }
@@ -22,7 +26,7 @@ class galeria {
         $this->tabela = $tabela;
     }
     
-    function setGaleria($galeria) {
+    public function setGaleria($galeria) {
         $this->galeria = $galeria;
     }
     
@@ -93,7 +97,7 @@ class galeria {
             $delete = new delete();
             $delete->ExeDelete($this->galeria,"WHERE id_post = :id","id={$this->id}");
             if($delete->getResultado()):
-                return true;
+                $this->resultado = true;
             endif;
         endif;
     }
@@ -113,7 +117,8 @@ class galeria {
         $delete = new delete();
         $delete->ExeDelete($this->galeria,"WHERE id = :id","id={$this->id}");
         if($delete->getResultado()):
-            echo "A imagem foi deletada com sucesso da galeira";
+            $this->resultado = true;
+            $this->error = "A imagem foi deletada com sucesso da galeira";
         endif;
         endif;
     }

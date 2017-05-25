@@ -22,7 +22,7 @@
         <li><a>Empresa <i class="fa fa-chevron-right"></i></a>
             <ul class="sub-lateral">
                 <li><a href="index.php?exe=empresas/criar">Criar nova</a></li>
-                <li><a href="index.php?exe=empresas/update">Editar e excluir</a></li>
+                <li><a href="index.php?exe=empresas/index">Editar e excluir</a></li>
             </ul>
         </li>
         <li><a>Usuários <i class="fa fa-chevron-right"></i></a>

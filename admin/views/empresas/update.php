@@ -13,7 +13,12 @@
     use app\helper\galeria;
 
     $empresa = new empresa();
-
+    $empGaleria = new galeria();
+    
+    //SETA OS VALORES DAS TABELAS
+    $empGaleria->setTabela('empresas');
+    $empGaleria->setGaleria('galeria_empresas');
+    
     //Recebe os dados do formulario.
     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     //Id da empresa.
@@ -28,9 +33,7 @@
 
         //GALERIA.
         if (isset($_FILES['gal']['tmp_name'])):
-            $empGaleria = new galeria();
-            $empGaleria->setTabela('empresas');
-            $empGaleria->setGaleria('galeria_empresas');
+           
             $empGaleria->enviarGaleria($_FILES['gal'], $idemp);
         endif;
 
@@ -44,6 +47,13 @@
         $readEmpresa->ExeRead('empresas',"WHERE id = :id","id={$idemp}");
         $dados = $readEmpresa->getResultado()[0];
         $dados['data_criacao'] = $dados['data_criacao'] ? date('d/m/Y H:i:s',strtotime($dados['data_criacao'])) : date('d/m/Y'); 
+    endif;
+    
+    //DELETA A IMAGEM DA GALERIA.
+    $idgal = filter_input(INPUT_GET,'iddelgal', FILTER_VALIDATE_INT);
+    if($idgal):
+        $empGaleria->deleteGaleriaImg($idgal);
+        echo '<div class="success">'.$empGaleria->getError().'<span class="x">X</span></div>';
     endif;
     ?>
 
@@ -140,5 +150,26 @@
         </div>
         <input type="submit" name="enviar" class="btn-green" value="Cadastrar">
         <input type="submit" name="enviar" class="btn-blue" value="Cadastrar e publicar">
+        
+        <div class="grid-g-12 galeria-imgs">
+            <?php 
+            $readGal = new read();
+            $readGal->ExeRead('galeria_empresas',"WHERE id_post = :id","id={$dados['id']}");
+            if($readGal->getResultado()):
+            foreach ($readGal->getResultado() as $resGal):    
+            ?>
+            <div class="grid-g-3 grid-m-3">
+                    <a href="<?= BASE .'../../../uploads/'.$resGal['caminho']?>" rel="shadowbox[idpost]">
+                        <img src="<?= BASE .'../../../uploads/'.$resGal['caminho']?>" alt="" title="" width="100%" height="170px">
+                        <a href="index.php?exe=empresas/update&idemp=<?=$dados['id']?>&iddelgal=<?=$resGal['id']?>"><i class="fa fa-times del"></i></a>
+                    </a>
+                </div>
+            <?php
+            endforeach;
+            else:
+
+            endif;
+            ?>
+        </div>
     </form>
 </section>
