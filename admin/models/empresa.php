@@ -40,7 +40,6 @@ class empresa {
             $this->error = 'Por favor preencha todos os campos obrigatorios com o * no final!';
         else:
             $this->setDados();
-            $this->setNome();
             $this->setCapa();
             $this->atualiza();
         endif;

@@ -18,6 +18,7 @@ $session = new session();
         $link = new link();
         $link->getTags();
         ?>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--CSS.-->
         <link href="<?= INLCUDE ?>/css/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="<?= INLCUDE ?>/css/grids.css" rel="stylesheet" type="text/css"/>
@@ -45,7 +46,7 @@ $session = new session();
         require 'views/inc/header.php';
         //Menu
         require 'views/inc/menu.php';
-       
+      
         funcoes::setHome();
          
         require 'views/inc/footer.php';

@@ -73,7 +73,7 @@ main section.conteudo-esquerdo .bloco1-conteudo p {color: #696565;}
 main section.conteudo-esquerdo .bloco1-conteudo time, main section.conteudo-esquerdo .bloco1-conteudo p.criado {color: #888888; font-size: 13px; float: left; margin: 15px 15px 15px 0px}
 /*CATEGORIAS 1 4artigos.*/
 main section.conteudo-esquerdo .bloco2 img {float: left; margin-left: 10px; width:100%; height:90px}
-main section.conteudo-esquerdo .bloco2-conteudo,aside.conteudo-direito .top-post-views .bloco2-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 10px 10px 10px 20px; margin-bottom: 14px}
+main section.conteudo-esquerdo .bloco2-conteudo,aside.conteudo-direito .top-post-views .bloco2-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 14px 10px 10px 20px; margin-bottom: 14px}
 main section.conteudo-esquerdo .bloco2-conteudo time, main section.conteudo-esquerdo .bloco2-conteudo p {color: #888888; float: left; margin-right: 10px; font-size: 13px} 
 main section.conteudo-esquerdo .bloco2-conteudo h1 {margin-bottom: 8px}
 main section.conteudo-esquerdo .bloco2-conteudo a:hover {color: #289dcc}
@@ -135,7 +135,7 @@ main .paginator a.atv {color: #373737; background: #289dcc}
 aside.conteudo-direito section {margin-bottom: 20px}
 aside.conteudo-direito h3 {border-bottom: 4px solid #289dcc; margin-bottom: 20px; }
 aside.conteudo-direito h3 span {background-color: #289dcc; padding: 7px 7px 0px 7px; width: 100%; color: #fff; font-weight: initial}
-aside.conteudo-direito .bloco2-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 10px 10px 10px 20px; margin-bottom: 14px}
+aside.conteudo-direito .bloco2-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 14px 10px 10px 20px; margin-bottom: 14px}
 aside.conteudo-direito img {float: left; margin-left: 10px; width:100%; height:90px}
 aside.conteudo-direito .bloco2-conteudo time, aside.conteudo-direito .bloco2-conteudo p {color: #888888; float: left; margin-right: 10px; font-size: 13px} 
 aside.conteudo-direito .bloco2-conteudo h1 {margin-bottom: 8px}

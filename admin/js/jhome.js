@@ -10,12 +10,23 @@ $(function () {
 
         var id = $(this).val();
         var url = 'j_php/cidades.php';
-        
-        $('#cidade').css('font-weight','bold').html('<option>Carregando cidades...</option>');
+
+        $('#cidade').css('font-weight', 'bold').html('<option>Carregando cidades...</option>');
 
         $.post(url, {idestado: id}, function (res) {
-            $('#cidade').delay(500).css('font-weight','normal').html(res);
+            $('#cidade').delay(500).css('font-weight', 'normal').html(res);
         });
 
     });
+
+    //EFEITO DA TABELA DE CATEGORIAS.
+    $('table').find('tr.sub-cat-tabela td').css('display', 'none');
+    
+    //EFEITO TOGGLE NAS TD.
+    $('table').find('tr.row-cat').on('click', function () {
+          var id = $(this).attr('id');
+          $('table tr.sub-cat-tabela').find('td[id='+id+']').slideToggle('fast');
+    });
+    
+    
 });

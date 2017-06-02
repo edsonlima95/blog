@@ -49,7 +49,7 @@
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px">
             <label for="nivel">Nivel </label>
             <select id="nivel" name="nivel">
-                <option value="" disabled="" selected="">Selecione um autor</option>
+                <option value="" selected="">Selecione um autor</option>
                 <option value="1">Super admin</option>
                 <option value="2">Admin</option>
             </select>

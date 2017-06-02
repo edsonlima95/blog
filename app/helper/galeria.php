@@ -38,7 +38,7 @@ class galeria {
         //Ler na tabela post se existe o id.
         $readPost = new read();
         $readPost->ExeRead($this->tabela, "WHERE id = :id", "id={$this->id}");
-        if (!$readPost->getResultado()[0]):
+        if (!$readPost->getResultado()):
             return false;
         else:
            

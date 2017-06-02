@@ -49,7 +49,7 @@ footer .feito p, footer .direitos p {color: #9c9999; line-height: 50px; margin-l
 table thead {background: #232323; color: #ccc;}
 table thead tr th {padding: 5px; border: none;}
 table tbody tr td {padding: 10px;}
-table tbody tr.row-cat {background: #edeaea}
+table tbody tr.row-cat {background: #edeaea; cursor: pointer;}
 table tbody a {color: #666; margin-right: 10px;}
 
 /*GALERIA.*/

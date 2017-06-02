@@ -12,7 +12,6 @@
     
     $posts = new posts();
     
-    
     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
     if (isset($dados) && $dados['enviar']):
@@ -56,7 +55,7 @@
         <div class="grid-g-5 grid-m-5">
             <label for="cat">Categoria <span style="color: red">*</span></label>
             <select id="cat" name="id_sub">
-                <option value="" disabled="" selected="">Selecione uma categoria</option>
+                <option value="" selected="">Selecione uma categoria</option>
                 <?php
                 $readCatPai = new read();
                 $readCatPai->ExeRead('categorias', "WHERE id_pai IS NULL ORDER BY nome ASC");
@@ -75,7 +74,7 @@
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px">
             <label for="autor">Autor <span style="color: red">*</span></label>
             <select id="autor" name="autor">
-                <option value="" disabled="" selected="">Selecione um autor</option>
+                <option value="" selected="">Selecione um autor</option>
                 <?php
                 $readAutor = new read();
                 $readAutor->ExeRead('usuarios', "ORDER BY nome ASC");
@@ -88,13 +87,8 @@
 
         <div class="grid-g-5 grid-m-5">
             <label for="data">Data </label>
-            <input type="date" id="data" name="data_criacao" value="<?= date('d/m/Y') ?>">
+            <input type="date" id="data" name="data_criacao" value="<?= date('d/m/Y H:i:s') ?>">
         </div>
-
-<!--        <div class="grid-g-5 grid-m-5" style="margin-right: 20px;">
-            <label for="video">Video <span style="color: red">*</span></label>
-            <input type="text" name="video" id="video" placeholder="Video">
-        </div>-->
         
         <div class="grid-m-12">
             <label for="textarea">Descrição <span style="color: red">*</span></label>

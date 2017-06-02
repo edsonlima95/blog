@@ -55,7 +55,7 @@ $readCategoriaSub = clone $readCategoria;
                         $readSubCount->ExeRead('categorias', "WHERE id_pai = :id", "id={$catPai['id']}");
                         $countSub = count($readSubCount->getResultado());
                         ?>
-                        <tr class="row-cat">
+                       <tr class="row-cat" id="<?= $catPai['id'] ?>">
                             <td><?= $catPai['id'] ?></td>
                             <td><?= $catPai['nome'] ?></td>
                             <td><?= $catPai['titulo'] ?></td>
@@ -73,14 +73,14 @@ $readCategoriaSub = clone $readCategoria;
                         if ($readCategoriaSub->getResultado()):
                             foreach ($readCategoriaSub->getResultado() as $catSub):
                                 ?>
-                                <tr>
-                                    <td><?= $catSub['id'] ?></td>
-                                    <td><?= $catSub['nome'] ?></td>
-                                    <td><?= $catSub['titulo'] ?></td>
-                                    <td><?= funcoes::limtarTextos($catSub['conteudo'], 40) ?></td>
-                                    <td>--</td>                          
-                                    <td><?= date('d/m/Y H:i', strtotime($catSub['data_criacao'])) ?></td>
-                                    <td style="text-align: center">
+                                <tr class="sub-cat-tabela">
+                                    <td id="<?=$catSub['id_pai']?>"><?= $catSub['id'] ?></td>
+                                    <td id="<?=$catSub['id_pai']?>"><?= $catSub['nome'] ?></td>
+                                    <td id="<?=$catSub['id_pai']?>"><?= $catSub['titulo'] ?></td>
+                                    <td id="<?=$catSub['id_pai']?>"><?= funcoes::limtarTextos($catSub['conteudo'], 40) ?></td>
+                                    <td id="<?=$catSub['id_pai']?>">--</td>                          
+                                    <td id="<?=$catSub['id_pai']?>"><?= date('d/m/Y H:i', strtotime($catSub['data_criacao'])) ?></td>
+                                    <td style="text-align: center" id="<?=$catSub['id_pai']?>">
                                         <a href="index.php?exe=categorias/update&idcat=<?= $catSub['id'] ?>"><i class="fa fa-edit" style="color: #4280ec; font-size: 17px;"></i></a>
                                         <a href="index.php?exe=categorias/index&iddel=<?= $catSub['id'] ?>"><i class="fa fa-times" style="color: #e05e5e; font-size: 17px"></i></a>
                                     </td>

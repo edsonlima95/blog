@@ -95,7 +95,7 @@ $empresa = new empresa();
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px">
             <label for="cat">Categoria </label>
             <select id="cat" name="id_cat">
-                <option value="" disabled="" selected="">Selecione uma categoria</option>
+                <option value="" selected="">Selecione uma categoria</option>
                 <?php
                 $readCatEmp = new read();
                 $readCatEmp->ExeRead('categoria_empresas', "ORDER BY titulo ASC");
