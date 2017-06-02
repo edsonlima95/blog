@@ -3,6 +3,7 @@
 use app\helper\funcoes;
 use app\conn\read;
 use admin\models\empresas;
+use app\helper\paginacao;
 
 $readEmpresas = new read();
 $delemp = new empresas();
@@ -18,7 +19,7 @@ $delemp = new empresas();
             echo '<div class="success">' . $delemp->getError() . '<span class="x">X</span></div>';
         else:
             echo '<div class="error">' . $delemp->getError() . '<span class="x">X</span></div>';
-            header('refresh: 3; url=index?exe=empresas_cat/index');
+            header('refresh: 3; url=index.php?exe=empresas_cat/index');
         endif;
     endif;
     ?>
@@ -36,8 +37,12 @@ $delemp = new empresas();
             </thead>
             <tbody>
                 <?php
+                $paginacao = new paginacao('http://localhost/blog/admin/index.php?exe=empresas_cat/index&atual=');
+                $valorAtaul = filter_input(INPUT_GET,'atual',FILTER_VALIDATE_INT);
+                $paginacao->pagina($valorAtaul, 10);
+                
                 //LER AS CATEGORIAS.
-                $readEmpresas->ExeRead('categoria_empresas', "ORDER BY titulo ASC, data_criacao DESC");
+                $readEmpresas->ExeRead('categoria_empresas', "ORDER BY titulo ASC, data_criacao DESC LIMIT :limit OFFSET :offset","limit={$paginacao->getLimit()}&offset={$paginacao->getOffset()}");
 
                 if ($readEmpresas->getResultado()):
                     foreach ($readEmpresas->getResultado() as $catEmp):
@@ -53,8 +58,8 @@ $delemp = new empresas();
                             <td><?=$countEmp?></td>
                             <td><?= date('d/m/Y H:i', strtotime($catEmp['data_criacao'])) ?></td>
                             <td style="text-align: center">
-                                <a href="index?exe=empresas_cat/update&idemp=<?= $catEmp['id'] ?>"><i class="fa fa-edit" style="color: #4280ec; font-size: 17px;"></i></a>
-                                <a href="index?exe=empresas_cat/index&idempdel=<?= $catEmp['id'] ?>"><i class="fa fa-times" style="color: #e05e5e; font-size: 17px"></i></a>
+                                <a href="index.php?exe=empresas_cat/update&idemp=<?= $catEmp['id'] ?>"><i class="fa fa-edit" style="color: #4280ec; font-size: 17px;"></i></a>
+                                <a href="index.php?exe=empresas_cat/index&idempdel=<?= $catEmp['id'] ?>"><i class="fa fa-times" style="color: #e05e5e; font-size: 17px"></i></a>
                             </td>
                         </tr>
                      <?php
@@ -63,5 +68,11 @@ $delemp = new empresas();
                 ?>
             </tbody>
         </table>
+    </div>
+   <div class="paginator">
+        <?php
+        $paginacao->paginacao('categoria_empresas', "ORDER BY titulo ASC, data_criacao DESC");
+        echo $paginacao->paginator();
+        ?>
     </div>
 </section>

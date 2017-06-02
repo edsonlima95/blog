@@ -1,11 +1,13 @@
 <?php
 ob_flush();
-//session_start();
+session_start();
 
 use app\helper\Logar;
 use app\helper\funcoes;
 
 require '../vendor/autoload.php';
+require '../app/config.php';
+
 $login = new Logar();
 if (!$login->checkSession()):
     header('Location: login.php');

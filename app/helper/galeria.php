@@ -38,12 +38,10 @@ class galeria {
         //Ler na tabela post se existe o id.
         $readPost = new read();
         $readPost->ExeRead($this->tabela, "WHERE id = :id", "id={$this->id}");
-        if (!$readPost->getResultado()):
+        if (!$readPost->getResultado()[0]):
             return false;
         else:
-            //Recupera o nome do post.
-            $NomeImagem = $readPost->getResultado()[0]['nome'];
-
+           
             //conta o total de imagens pelo indice.
             $arrayCount = count($this->dados['tmp_name']);
 
@@ -62,7 +60,7 @@ class galeria {
             $i = 0;
             foreach ($arrayImagens as $upimagens):
                 $i++; //Conta as imagens existe, sem o $i os nomes repete.
-                $novoNome = "{$NomeImagem}-{$this->id}-" . (substr(md5(time() + $i), 0, 5));
+                $novoNome = "{$this->id}-" . (substr(md5(time() + $i), 0, 5));
                 //Eviar as imagens
                 $uploadImagem->enviarImagem($upimagens, $novoNome,'galeria');
 

@@ -4,10 +4,20 @@ session_start();
 require './app/config.php';
 require './vendor/autoload.php';
 use app\helper\funcoes;
+use app\helper\session;
+use app\helper\link;
+//GERENCIA A SESSAO DO SITE.
+$session = new session();
+
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
+        <?php
+        //OBTEM AS TAGS DO SITE.
+        $link = new link();
+        $link->getTags();
+        ?>
         <!--CSS.-->
         <link href="<?= INLCUDE ?>/css/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="<?= INLCUDE ?>/css/grids.css" rel="stylesheet" type="text/css"/>
@@ -16,7 +26,7 @@ use app\helper\funcoes;
         <link rel="stylesheet" type="text/css" href="<?= INLCUDE ?>/js/slide/engine1/style.css" />
         <!-- SHADOWBOX.-->
         <link href="<?= INLCUDE ?>/js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css"/>
-        <title></title>
+        <link rel="icon" href="uploads/icon.ico"/>
     </head>
     <body>
         <div class="back-dark"></div>

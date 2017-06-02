@@ -4,6 +4,7 @@ namespace app\helper;
 use app\conn\read;
 use app\conn\update;
 use app\conn\delete;
+use app\conn\create;
 
 class session {
 
@@ -14,8 +15,6 @@ class session {
 
     //ao chamar a classe ela incial todos os metodos.
     function __construct($cache = null) {
-        //incia a sessao ao instanciar a classe.
-        session_start();
         //Executa o metodo qe verifica a sessao.
         $this->verificaSessao($cache);
     }
@@ -58,7 +57,7 @@ class session {
             "fim_sessao" => date('Y-m-d H:i:s', strtotime("+{$this->cache}minutes")), //soma os 20 minutos do cache, com a hora que inicia.
             "ip_online" => filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_DEFAULT), //ip da maquina.
             "url_online" => filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_DEFAULT), //url de acesso
-            "agente_online" => filter_input(INPUT_SERVER, 'HTTP_USER_AGENT', FILTER_DEFAULT), //browser
+            "online_agent" => filter_input(INPUT_SERVER, 'HTTP_USER_AGENT', FILTER_DEFAULT), //browser
         ];
     }
 
@@ -138,18 +137,18 @@ class session {
     //verificar o browser.
     private function verificaBrowser() {
         //pega o browser na sessao.
-        $this->browser = $_SESSION['usuarioonline']['agente_online'];
+        $this->browser = $_SESSION['usuarioonline']['online_agent'];
         //verifica se exixte a palavra na string agente_online.
         if (strpos($this->browser, 'Chromium')):
             $this->browser = 'Chromium';
         elseif (strpos($this->browser, 'Chrome')):
             $this->browser = 'Chrome';
-        elseif (strpos($this->browser, 'Firefox')):
+        elseif (strpos($this->browser, 'Chrome Mozilla')):
             $this->browser = 'Firefox';
         elseif (strpos($this->browser, 'Trident/') || (strpos($this->browser, 'MSIE'))):
             $this->browser = 'Chromium';
         else:
-            $this->trafico = 'Outros';
+            $this->browser = 'Outros';
         endif;
     }
 
@@ -174,10 +173,12 @@ class session {
     //Cadastra a sessao de usuario na tabela site_online.
     private function setSessaoTabela() {
         $sessaoOnline = $_SESSION['usuarioonline'];
-        $sessaoOnline['browser'] = $this->browser;
-
+        
         $createUsuario = new create();
         $createUsuario->ExeCreate('site_online', $sessaoOnline);
+        if(!$createUsuario->getResultado()):
+            echo 'Error ao tenta cadastrar';
+        endif;
     }
 
     //Cadastra a atualização da sessao, fim sessao e url no banco.

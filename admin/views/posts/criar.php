@@ -80,7 +80,7 @@
                 $readAutor = new read();
                 $readAutor->ExeRead('usuarios', "ORDER BY nome ASC");
                 foreach ($readAutor->getResultado() as $resAut):
-                    echo '<option value="' . $resAut['id'] . '">' . ucfirst($resAut['nome']) . '</option>';
+                    echo '<option value="' . $resAut['nome'] . '">' . ucfirst($resAut['nome']) . '</option>';
                 endforeach;
                 ?>
             </select>
@@ -91,6 +91,11 @@
             <input type="date" id="data" name="data_criacao" value="<?= date('d/m/Y') ?>">
         </div>
 
+<!--        <div class="grid-g-5 grid-m-5" style="margin-right: 20px;">
+            <label for="video">Video <span style="color: red">*</span></label>
+            <input type="text" name="video" id="video" placeholder="Video">
+        </div>-->
+        
         <div class="grid-m-12">
             <label for="textarea">Descrição <span style="color: red">*</span></label>
             <textarea name="conteudo" id="textarea" placeholder="Descrição"></textarea>

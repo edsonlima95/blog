@@ -38,7 +38,7 @@ class files {
     public function enviarImagem(array $imagens, $nome = null, $folder = null) {
         $this->file = $imagens;
         $this->nome = ((string) $nome ? $nome : substr($imagens['name'], 0, strrpos($imagens['name'], '.'))); //Pega o nome ate o ponto so.
-        $this->width = ((int) $width ? $width : 1366);
+        $this->width = (int) 1366;
         $this->folder = ((string) $folder ? $folder : 'imagens');
         $this->verificaFolder($this->folder);
         $this->setNome();

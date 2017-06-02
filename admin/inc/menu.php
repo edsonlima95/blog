@@ -1,6 +1,15 @@
 <nav class="menu-lateral grid-g-2">  
     <ul>
-        <li class="img-perfil"><img src="img/IMG_0339.JPG" width="100" height="100"></li>
+        <li class="img-perfil">
+            <?php
+            $id = $_SESSION['user']['id'];
+            use app\conn\read;
+            $readUserImg = new read();
+            $readUserImg->ExeRead('usuarios',"WHERE id = :id","id={$id}");
+            $userimg = $readUserImg->getResultado()[0]['capa'];        
+            ?>
+            <img src="<?php if($userimg) echo '../uploads/'.$userimg; else echo 'img/perfil.png'; ?>" width="100" height="100">
+        </li>
         <li><a>Categorias <i class="fa fa-chevron-right"></i></a>
             <ul class="sub-lateral">
                 <li><a href="index.php?exe=categorias/criar">Criar nova</a></li>
@@ -28,7 +37,7 @@
         <li><a>Usuários <i class="fa fa-chevron-right"></i></a>
             <ul class="sub-lateral">
                 <li><a href="index.php?exe=usuarios/criar">Criar novo</a></li>
-                <li><a href="#">Editar e excluir</a></li>
+                <li><a href="index.php?exe=usuarios/index">Editar e excluir</a></li>
             </ul>
         </li>
         

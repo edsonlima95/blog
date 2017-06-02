@@ -1,6 +1,7 @@
 <?php
 
 namespace app\helper;
+
 use app\conn\delete;
 use app\conn\read;
 use app\conn\create;
@@ -17,6 +18,7 @@ class funcoes {
         self::$formato['a'] = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜüÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿRr"!@#$%&*()_-+={[}]/?;:.,\\\'<>°ºª';
         self::$formato['b'] = 'aaaaaaaceeeeiiiidnoooooouuuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
         self::$dados = strtr(utf8_decode($nome), utf8_decode(self::$formato['a']), self::$formato['b']); //elimina as acentuaçoes e passa do formato A para o B;
+        self::$dados = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', self::$dados);
         self::$dados = strip_tags(trim(self::$dados)); //elimina tags html.
         self::$dados = str_replace(' ', '-', self::$dados);
         self::$dados = str_replace(array('-----', '----', '---', '--'), '-', self::$dados); //se houver mais de um traço ele substitui por apenas 1.
@@ -46,9 +48,9 @@ class funcoes {
 
     // pega o id da categoria informada.
     public static function categoriaNome($nome) {
-        $novo = strtolower($nome);
+        $novo = ucfirst($nome);
         $read = new read();
-        $read->ExeRead('categories', "WHERE nome = :nome", "nome={$novo}");
+        $read->ExeRead('categorias', "WHERE nome = :nome", "nome={$novo}");
         if ($read->getResultado()):
             return $read->getResultado()[0]['id'];
         else:
@@ -94,7 +96,8 @@ class funcoes {
             echo "Erro ao tentar incluir o arquivo !";
         endif;
     }
-    
+
+    //Obtem a url
     public static function setHome() {
         $url = (isset($_GET['url']) ? strip_tags(trim($_GET['url'])) : 'index');
         $url = explode('/', $url);
@@ -111,6 +114,22 @@ class funcoes {
             else:
                 echo 'O arquivo não existe!';
             endif;
+        endif;
+    }
+
+    //VISITAS DE ARTIGOS.
+    public static function contaVisitas($tabela) {
+        $url = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
+        $url = explode('/', $url);
+        self::$dados = $url[1];
+
+        $countVisitas = new read();
+        $countVisitas->ExeRead($tabela, "WHERE url = :u", "u=" . self::$dados);
+        if($countVisitas->getResultado()):
+            $visitas = $countVisitas->getResultado()[0]['visitas'];
+            $arr = ['visitas' => $visitas + 1];
+            $updateVisitas = new update();
+            $updateVisitas->ExeUpdate($tabela, $arr, "WHERE url = :u", "u=" . self::$dados);
         endif;
     }
 

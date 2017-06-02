@@ -39,7 +39,7 @@
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px">
             <label for="cat">Categoria <span style="color: red">*</span></label>
             <select id="cat" name="id_pai">
-                <option value="" disabled="" selected="">Selecione uma Categória</option>
+                <option value="null">Selecione uma Categória</option>
                 <?php
                 $readC = new read();
                 $readC->ExeRead('categorias',"WHERE id_pai IS NULL ORDER BY titulo ASC");

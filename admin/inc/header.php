@@ -1,5 +1,5 @@
 <header class="cabecalho grid-g-12">
-    <p style="float: left"><a href="index">Dashboard</a></p>
+    <p style="float: left"><a href="index.php">Dashboard</a></p>
     <nav class="menu-perfil">
         <ul>
             <li><i class="fa fa-user"></i><a href="#">Perfil</a>

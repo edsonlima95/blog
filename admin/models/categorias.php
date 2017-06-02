@@ -61,8 +61,8 @@ class categorias {
         else:
             $readPost = new read();
             $readPost->ExeRead('posts',"WHERE id_sub = :id","id={$this->id}");
-            if($readPost->getResultado()[0]):
-                $this->error =  'Tem posts';
+            if($readPost->getResultado()):
+                $this->error =  'A sub-categoria contém posts, não pode ser deletada!';
             else:
             $this->deleta();
             endif;
@@ -80,9 +80,9 @@ class categorias {
     //SETA O NOME
     private function setNome() {
         $readCatNome = new read();
-        $readCatNome->ExeRead(self::tabela, "WHERE titulo = :t", "t={$this->dados['titulo']}");
-        if ($readCatNome->getResultado()[0]):
-            $this->dados['titulo'] = $this->dados['titulo'] . '-' . time();
+        $readCatNome->ExeRead(self::tabela, "WHERE nome = :t", "t={$this->dados['nome']}");
+        if ($readCatNome->getResultado()):
+            $this->dados['nome'] = $this->dados['nome'] . '-' . time();
         endif;
     }
 
@@ -113,7 +113,7 @@ class categorias {
         if ($deletaCat->getResultado()):
             $this->resultado = true;
             $this->error = 'Os dados foram deletados com sucesso.';
-            header('refresh: 3; url=index?exe=categorias/index');
+            header('refresh: 3; url=index.php?exe=categorias/index');
         endif;
     }
 

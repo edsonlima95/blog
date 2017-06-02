@@ -45,20 +45,20 @@ class posts {
             $this->atualiza();
         endif;
     }
-    
+
     //DELETA O POSTS.
     public function deletaPosts($id) {
         $this->id = $id;
         $readPost = new read();
-        $readPost->ExeRead('posts',"WHERE id = :id","id={$this->id}");
-        if($readPost->getRowCount() > 0):
+        $readPost->ExeRead('posts', "WHERE id = :id", "id={$this->id}");
+        if ($readPost->getRowCount() > 0):
             $readGal = new read();
-            $readGal->ExeRead('galeria_posts',"WHERE id_post = :id","id={$this->id}");
-            if($readGal->getResultado()):
-             $galeria = new galeria();
-             $galeria->deleteGaleria($this->id);
-             else:
-                 
+            $readGal->ExeRead('galeria_posts', "WHERE id_post = :id", "id={$this->id}");
+            if ($readGal->getResultado()):
+                $galeria = new galeria();
+                $galeria->deleteGaleria($this->id);
+            else:
+
             endif;
         endif;
         $this->deleta();
@@ -72,13 +72,25 @@ class posts {
     function getError() {
         return $this->error;
     }
+    
+    //STATUS.
+    public function status($idpost, $status) {
+       $this->id = $idpost;
+       $readStatus = new read();
+       $readStatus->ExeRead('posts',"WHERE id = :id","id={$this->id}");
+       if($readStatus->getResultado()):
+          $arrS = array("status" => $status);
+          $updateS = new update();
+          $updateS->ExeUpdate('posts', $arrS,"WHERE id = :id","id={$this->id}");
+       endif;
+    }
 
     //SETA OS DADOS
     private function setDados() {
         $this->dados['capa'] = ($this->dados['capa'] == 'null' ? null : $this->dados['capa']);
-        $this->dados['url'] = funcoes::Name($this->dados['titulo']);
+        $this->dados['url'] = strip_tags(trim(funcoes::Name($this->dados['titulo'])));
         $this->dados['data_criacao'] = funcoes::validaData($this->dados['data_criacao']);
-        $this->dados['conteudo'] = html_entity_decode(strip_tags($this->dados['conteudo'],'<a>'));//Permite apenas a tag <a>
+        $this->dados['conteudo'] = html_entity_decode($this->dados['conteudo']);
         $this->getIdCat();
     }
 
@@ -86,7 +98,7 @@ class posts {
     private function setNome() {
         $readCatNome = new read();
         $readCatNome->ExeRead(self::tabela, "WHERE titulo = :t", "t={$this->dados['titulo']}");
-        if ($readCatNome->getResultado()[0]):
+        if ($readCatNome->getResultado()):
             $this->dados['titulo'] = $this->dados['titulo'] . '-' . time();
         endif;
     }
@@ -105,13 +117,17 @@ class posts {
 
         //VERIFICA SE EXISTE A IMAGEM E ENVIA PARA A PASTA.
         if (isset($this->dados['capa'])):
-            //APAGA A CAPA ANTIGA.
-            $readCapa = new read();
-            $readCapa->ExeRead('posts', "WHERE id = :id", "id={$this->id}");
-            $capaDel = '../uploads/' . $readCapa->getResultado()[0]['capa'];
-            if (file_exists($capaDel) && !is_dir($capaDel)):
-                unlink($capaDel);
+            //SE O ID EXISTIR.
+            if ($this->id):
+                //APAGA A CAPA ANTIGA.
+                $readCapa = new read();
+                $readCapa->ExeRead('posts', "WHERE id = :id", "id={$this->id}");
+                $capaDel = '../uploads/' . $readCapa->getResultado()[0]['capa'];
+                if (file_exists($capaDel) && !is_dir($capaDel)):
+                    unlink($capaDel);
+                endif;
             endif;
+
 
             //ENVIAR A CAPA.
             $capa = new files();
@@ -149,11 +165,11 @@ class posts {
     //DELETA
     private function deleta() {
         $deletaPost = new delete();
-        $deletaPost->ExeDelete(self::tabela,"WHERE id = :id","id={$this->id}");
+        $deletaPost->ExeDelete(self::tabela, "WHERE id = :id", "id={$this->id}");
         if ($deletaPost->getResultado()):
             $this->resultado = true;
             $this->error = 'Os dados foram deletados com sucesso.';
-             header('refresh: 3; url=index?exe=posts/index');
+            header('refresh: 3; url=index.php?exe=posts/index');
         endif;
     }
 

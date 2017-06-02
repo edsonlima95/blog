@@ -81,7 +81,7 @@ class empresas {
     private function setNome() {
         $readEmpNome = new read();
         $readEmpNome->ExeRead(self::tabela, "WHERE titulo = :t", "t={$this->dados['titulo']}");
-        if ($readEmpNome->getResultado()[0]):
+        if ($readEmpNome->getResultado()):
             $this->dados['titulo'] = $this->dados['titulo'] . '-' . time();
         endif;
     }
@@ -113,7 +113,7 @@ class empresas {
         if ($deletaCat->getResultado()):
             $this->resultado = true;
             $this->error = 'Os dados foram deletados com sucesso.';
-            header('refresh: 3; url=index?exe=empresas_cat/index');
+            header('refresh: 3; url=index.php?exe=empresas_cat/index');
         endif;
     }
 

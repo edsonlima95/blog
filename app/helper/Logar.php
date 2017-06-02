@@ -12,7 +12,7 @@ class Logar {
     private $resultado;
 
     function __construct() {
-        session_start();
+//        session_start();
     }
 
     function getResultado() {
@@ -49,6 +49,7 @@ class Logar {
     //users',"WHERE email = '$this->email' AND password = '$this->senha'
     private function checkUsers() {
         $readUsers = new read();
+        $this->senha = md5(base64_decode($this->senha));
         $readUsers->ExeRead('usuarios',"WHERE email = :email AND password = :senha","email={$this->email}&senha={$this->senha}");
         if ($readUsers->getResultado()):
             $this->resultado = $readUsers->getResultado()[0];

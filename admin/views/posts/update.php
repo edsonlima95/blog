@@ -1,6 +1,6 @@
 <section class="grid-g-12 estilo-form">
     <div class="bread">
-        <a href="index">Home</a>
+        <a href="index.php">Home</a>
         <span>/</span>
         <a class="ativo">Posts</a>
     </div>
@@ -18,7 +18,7 @@
    
 
     if (isset($dados) && $dados['enviar']):
-        $dados['status'] = ($dados['enviar'] == 'Cadastrar' ? 0 : 1);
+        $dados['status'] = ($dados['enviar'] == 'Atualiza' ? 0 : 1);
         unset($dados['enviar']);
         
         //CAPA.
@@ -97,7 +97,7 @@
                 $readAutor = new read();
                 $readAutor->ExeRead('usuarios', "ORDER BY nome ASC");
                 foreach ($readAutor->getResultado() as $resAut):
-                    echo '<option value="' . $resAut['id'] . '"';
+                    echo '<option value="' . $resAut['nome'] . '"';
                         if($resAut['id'] == $dados['autor'])  echo 'selected';
                     echo '>' . ucfirst($resAut['nome']) . '</option>';
                 endforeach;
@@ -115,10 +115,11 @@
             <textarea name="conteudo" id="textarea" placeholder="Descrição"><?php if(isset($dados['conteudo'])) echo $dados['conteudo'];?></textarea>
         </div>
         
-        <input type="submit" name="enviar" class="btn-blue" value="Cadastrar e publicar">
-        <input type="submit" name="enviar" class="btn-green" value="Cadastrar">
+        <input type="submit" name="enviar" class="btn-blue" value="Atualizar e publicar">
+        <input type="submit" name="enviar" class="btn-green" value="Atualiza">
         
-        <div class="grid-g-12 galeria-imgs">
+    </form>
+    <div class="grid-g-12 galeria-imgs">
             <?php 
             $readGal = new read();
             $readGal->ExeRead('galeria_posts',"WHERE id_post = :id","id={$idpost}");
@@ -126,7 +127,7 @@
             foreach ($readGal->getResultado() as $resGal):    
             ?>
             <div class="grid-g-3 grid-m-3">
-                    <a href="<?= BASE .'../../../uploads/'.$resGal['caminho']?>" rel="shadowbox[idpost]">
+                    <a href="<?= BASE .'../../../uploads/'.$resGal['caminho']?>" rel="shadowbox[$idpost]">
                         <img src="<?= BASE .'../../../uploads/'.$resGal['caminho']?>" alt="" title="" width="100%" height="170px">
                         <a href="index.php?exe=posts/update&idpost=<?=$dados['id']?>&iddelgal=<?=$resGal['id']?>"><i class="fa fa-times del"></i></a>
                     </a>
@@ -138,5 +139,4 @@
             endif;
             ?>
         </div>
-    </form>
 </section>

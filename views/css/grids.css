@@ -51,3 +51,30 @@
   .grid-g-11 {width:91.66666667%;}
   .grid-g-12 {width:100%}
 }
+
+/*MENSAGENS.*/
+.alert {background-color: #fcf8e3; padding: 10px; color: #8a6d3b; border-color: #faebcc; margin-bottom: 10px;
+border: 1px solid transparent; border-radius: 4px;}
+
+.error {padding: 10px; color: #a94442; background-color: #f2dede; border-color: #ebccd1; margin-bottom: 10px;
+border: 1px solid transparent; border-radius: 4px;}
+
+.info {padding: 10px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1; margin-bottom: 10px;
+border: 1px solid transparent; border-radius: 4px;}
+
+.success {padding: 10px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6; margin-bottom: 10px;
+border: 1px solid transparent; border-radius: 4px;}
+
+.x {float: right; cursor: pointer; }
+
+.btn-blue {background: #2f80c5}
+.btn-green {background: #2fc550}
+
+/*TABELA.*/
+table, th, td {border-collapse: collapse; border: 1px solid #ccc;}
+.tabela-responsiva {min-height: .01%; overflow-x: auto;}
+
+/*BREADCRUMB.*/
+.bread {width: 100%;background: #f5f5f5; padding: 5px; margin-bottom: 20px;}
+.bread a {margin: 0 10px; color: #538ef5;}
+.bread .ativo {color: #938e8e}

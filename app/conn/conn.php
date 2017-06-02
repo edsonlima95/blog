@@ -5,6 +5,10 @@ use PDO;
 
 class conn {
 
+    //id1842962_root
+    //Senha
+    //id1842962_cidadenews
+    
     private static $host = 'localhost';
     private static $user = 'root';
     private static $password = '';

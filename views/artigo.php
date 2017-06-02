@@ -1,31 +1,53 @@
 <?php
 use app\helper\funcoes;
+use app\helper\link;
+use app\conn\conn;
+use app\conn\read;
+
+//CONTA AS VISITAS.
+funcoes::contaVisitas('posts');
+
+$link = new link();
+$link->getTags();
+
+if($link->getDados()):
+    extract($link->getDados());    
+endif;
+
 ?>
 <main class="grid-g-12">
     <section class="grid-g-8 conteudo-esquerdo artigo">  
-            <h1>Nome do artigo</h1>
+            <h1><?= $titulo ?></h1>
              <!--Artigo.-->
-            <img src="<?= INLCUDE ?>/img/img3.jpg" alt="" title="">
+            <img src="http://localhost/blog/uploads/<?= $capa ?>" alt="<?= $titulo ?>" title="<?= $titulo ?>">
             <div class="artigo-conteudo">
-                <h2><?= funcoes::limtarTextos('Lorem ipsum dolor sit amet consectetur adipisicing eiusmod tempor consectetur adipisicing eiusmod tempor', 100) ?></h2>
                 <p class="conteudo">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
+                    <?= $conteudo ?>
                 </p>
-                <time><i class="fa fa-calendar"> 02-04-2017</i></time>
-                <p class="criador"><i class="fa fa-user"> Edson lima</i></p>
+                <time><i class="fa fa-calendar"> <?= date('d-m-Y', strtotime($data_criacao)); ?></i></time>
+                <i class="fa fa-user criador"> <?= $autor ?></i>
             </div>
             <!--Galeria.-->
             <h3 class="titulo-galeria">
                 <span>Galeria de Imagens</span>
             </h3>
-            <?php for($i=0; $i < 8; $i++):?>
+            <?php
+            $readGaleria = new read();
+            $readGaleria->ExeRead('galeria_posts',"WHERE id_post  = :id","id={$id}");
+            if($readGaleria->getResultado()):
+                foreach ($readGaleria->getResultado() as $resArt):
+            ?>
             <div class="grid-g-3 galeria">
-                <a href="<?= INLCUDE ?>/img/img3.jpg" rel="shadowbox[idpost]">
-                    <img src="<?= INLCUDE ?>/img/img3.jpg" alt="" title="" height="170px">
+                <a href="<?= BASE.'uploads/'.$resArt['caminho'] ?>" rel="shadowbox[id]">
+                    <img src="<?= BASE.'uploads/'.$resArt['caminho'] ?>" alt="<?= $resArt['titulo']?>" title="<?= $resArt['titulo']?>" height="170px">
                 </a>
             </div>
-            <?php endfor;?>
+            <?php
+                endforeach;
+            else:
+                echo '<div class="info">O post não contém uma galeria de imagens.</div>';
+            endif;
+            ?>
     </section>
     
     <!--ASIDE.-->
