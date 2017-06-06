@@ -141,9 +141,7 @@ aside.conteudo-direito .bloco2-conteudo time, aside.conteudo-direito .bloco2-con
 aside.conteudo-direito .bloco2-conteudo h1 {margin-bottom: 8px}
 aside.conteudo-direito .bloco2-conteudo a:hover {color: #289dcc}
 aside.conteudo-direito .bloco2-conteudo a {color: #333333; text-decoration: none; font-weight: initial}
-aside.conteudo-direito .top-empresas {position: relative}
-aside.conteudo-direito .top-empresas ul {display: none; position: absolute; top: 46px; left: -262px; max-width: 265px; background: rgba(0,0,0, 0.4); color: #B4B3B3; padding: 10px; border-radius: 10px; list-style: none}
-aside.conteudo-direito .top-empresas ul li {margin-bottom: 10px}
+
 
 /*FOOTER.*/
 footer {background: #232323; padding: 10px;}

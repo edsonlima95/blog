@@ -126,8 +126,7 @@ class posts {
                     unlink($capaDel);
                 endif;
             endif;
-
-
+            
             //ENVIAR A CAPA.
             $capa = new files();
             $capa->enviarImagem($this->dados['capa'], $this->dados['url'], 'posts');

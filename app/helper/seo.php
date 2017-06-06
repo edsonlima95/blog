@@ -44,7 +44,6 @@ class seo {
         //Verifica pelo arquivo passado.
         switch ($this->file):
             case 'artigo':
-                
                 //Verfica o post pelo link
                 $readSeo->ExeRead('posts', "WHERE url LIKE '%' :link '%'", "link={$this->link}");
                 if (!$readSeo->getResultado()):
@@ -60,72 +59,54 @@ class seo {
                     $this->dados = [$titulo . SITENOME, $conteudo, "http://localhost/blog/artigo/{$url}", "'http://localhost/blog/view/img/site.png'"];
                 endif;
                 break;
-//            case 'empresa':
-//                //Verfica o post pelo link
-//                $readSeo->ExeRead('app_empresas', "WHERE empresa_name = :link", "link={$this->link}");
-//                if (!$readSeo->getResultado()):
-//                    $this->seoTags = null;
-//                    $this->seoDados = null;
-//                else:
-//                    extract($readSeo->getResultado()[0]);
-//
-//                    //Recebe o resultado do banco.
-//                    $this->seoDados = $readSeo->getResultado()[0];
-//
-//                    //Seta os valores no setTags caso exista o artigo.
-//                    $this->dados = [$empresa_title . SITENOME, $empresa_sobre, "http://localhost/cidadeonline/empresa/{$empresa_name}", "http://localhost/cidadeonline/view/img/site.png"];
-//
-//                    //Conta a visita na empresa.
-//                    $Countviews = ['empresa_views' => $empresa_views + 1];
-//                    $updateViews = new update();
-//                    $updateViews->ExeUpdate('app_empresas', $Countviews, "WHERE empresa_id = :empresa_id", "empresa_id={$empresa_id}");
-//                endif;
-//                break;
-//            case'categorias':
-//                //Verfica a categoria pelo link
-//                $readSeo->ExeRead('categories', "WHERE nome = :link", "link={$this->link}");
-//                if (!$readSeo->getResultado()):
-//                    $this->seoTags = null;
-//                    $this->seoDados = null;
-//                else:
-//                    extract($readSeo->getResultado()[0]);
-//
-//                    //Recebe o resultado do banco.
-//                    $this->seoDados = $readSeo->getResultado()[0];
-//
-//                    //Seta os valores no setTags caso exista o artigo.
-//                    $this->dados = [$titulo . SITENOME, $conteudo, "http://localhost/cidadeonline/categorias/{$nome}", 'http://localhost/cidadeonline/view/img/site.png'];
-//
-//                    //Conta a visita no post.
-//                    $Countviews = ['views' => $views + 1];
-//                    $updateViews = new update();
-//                    $updateViews->ExeUpdate('categories', $Countviews, "WHERE id = :id", "id={$id}");
-//                endif;
-//                break;
-//            case 'pesquisa';
-//                //Verfica a categoria pelo link
-//                $readSeo->ExeRead('posts', "WHERE status = 1 AND (titulo LIKE '%' :link '%' OR conteudo LIKE '%' :link '%')", "link={$this->link}");
-//                if (!$readSeo->getResultado()):
-//                    $this->seoTags = null;
-//                    $this->seoDados = null;
-//                else:
-//                    //Cria um indice e recebe a quantidade de resultados.
-//                    $this->seoDados['count'] = $readSeo->getRowCount();
-//
-//                    //Seta os valores no setTags caso exista o artigo.
-//                    $this->dados = ["Pesquisa por: {$this->link} " . SITENOME, "Sua pesquisa por {$this->link} retornou {$this->seoDados['count']} resultados!", "http://localhost/cidadeonline/pesquisa/{$this->link}", 'http://localhost/cidadeonline/view/img/site.png'];
-//                endif;
-//                break;
+            case 'empresa':
+                //Verfica o post pelo link
+                $readSeo->ExeRead('empresas', "WHERE url LIKE '%' :link '%'", "link={$this->link}");
+                if (!$readSeo->getResultado()):
+                    $this->seoTags = null;
+                    $this->seoDados = null;
+                else:
+                    extract($readSeo->getResultado()[0]);
+
+                    //Recebe o resultado do banco.
+                    $this->seoDados = $readSeo->getResultado()[0];
+
+                    //Seta os valores no setTags caso exista o artigo.
+                    $this->dados = [$titulo . SITENOME, $conteudo, "http://localhost/blog/empresa/{$url}", "http://localhost/blog/view/img/site.png"];
+                endif;
+                break;
+            case'categorias':
+                //Verfica a categoria pelo link
+                $readSeo->ExeRead('categorias', "WHERE url = :link", "link={$this->link}");
+                if (!$readSeo->getResultado()):
+                    $this->seoTags = null;
+                    $this->seoDados = null;
+                else:
+                    extract($readSeo->getResultado()[0]);
+
+                    //Recebe o resultado do banco.
+                    $this->seoDados = $readSeo->getResultado()[0];
+
+                    //Seta os valores no setTags caso exista o artigo.
+                    $this->dados = [$titulo . SITENOME, $conteudo, "http://localhost/blog/categorias/{$nome}", 'http://localhost/blog/view/img/site.png'];
+                endif;
+                break;
+            case 'pesquisa';
+                //Verfica a categoria pelo link
+                $readSeo->ExeRead('posts', "WHERE status = 1 AND (titulo LIKE '%' :link '%' OR conteudo LIKE '%' :link '%')", "link={$this->link}");
+                if (!$readSeo->getResultado()):
+                    $this->seoTags = null;
+                    $this->seoDados = null;
+                else:
+                    //Cria um indice e recebe a quantidade de resultados.
+                    $this->seoDados['count'] = $readSeo->getRowCount();
+
+                    //Seta os valores no setTags caso exista o artigo.
+                    $this->dados = ["Pesquisa por: {$this->link} " . SITENOME, "Sua pesquisa por {$this->link} retornou {$this->seoDados['count']} resultados!", "http://localhost/blog/pesquisa/{$this->link}", 'http://localhost/blog/view/img/site.png'];
+                endif;
+                break;
 //            case 'empresas';
-//                //Nome vindo da url.
-//                $nome = ucfirst(str_replace('-', ' ', $this->link));
-//
-//                //Como não tem uma categoria especifica no banco, então vou criar um indice passar o valor manualmente.
-//                $this->seoDados = ['empresa_cat' => $nome];
-//
-//                //Seta os valores no setTags manualmento pois nao contem uma categoria especifica no banco.
-//                $this->dados = ["Empresas {$this->link}" . SITENOME, 'Empresa no ramo de hospedagens', "http://localhost/cidadeonline/empresas/{$this->link}", 'http://localhost/cidadeonline/view/img/site.png'];
-//
+//                
 //                break;
             case 'index':
                 //Se não existir nenhum dos case vai seta esses default no meta.

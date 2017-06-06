@@ -81,13 +81,6 @@ $(function () {
         }
     });
     
-    //EFEITOS CATEGORIA.
-    $('.top-empresas').find('h1').mouseover(function () {
-       $('.top-empresas').find('ul').fadeIn('slow'); 
-    }).mouseleave(function () {
-       $('.top-empresas').find('ul').fadeOut('fast'); 
-    });
-    
     Shadowbox.init();
     
 });

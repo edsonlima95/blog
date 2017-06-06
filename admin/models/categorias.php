@@ -72,7 +72,7 @@ class categorias {
     //SETA OS DADOS
     private function setDados() {
         $this->dados['id_pai'] = ($this->dados['id_pai'] == 'null' ? null : $this->dados['id_pai']);
-        $this->dados['url'] = funcoes::Name($this->dados['titulo']);
+        $this->dados['url'] = funcoes::Name($this->dados['nome']);
         $this->dados['data_criacao'] = funcoes::validaData($this->dados['data_criacao']);
         $this->dados['conteudo'] = html_entity_decode(strip_tags($this->dados['conteudo']));
     }

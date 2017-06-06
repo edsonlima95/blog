@@ -44,22 +44,22 @@ class empresa {
             $this->atualiza();
         endif;
     }
-    
+
     //DELETA O EMPRESA.
     public function deletaEmpresa($id) {
         $this->id = $id;
-        
+
         $readEmp = new read();
-        $readEmp->ExeRead('empresas',"WHERE id = :id","id={$this->id}");
-        if($readEmp->getRowCount() > 0):
+        $readEmp->ExeRead('empresas', "WHERE id = :id", "id={$this->id}");
+        if ($readEmp->getRowCount() > 0):
             $readGal = new read();
-            $readGal->ExeRead('galeria_empresas',"WHERE id_post = :id","id={$this->id}");
-            if($readGal->getResultado()):
-             $galeria = new galeria();
-             $galeria->setGaleria('galeria_empresas');
-             $galeria->deleteGaleria($this->id);
-             else:
-                 
+            $readGal->ExeRead('galeria_empresas', "WHERE id_post = :id", "id={$this->id}");
+            if ($readGal->getResultado()):
+                $galeria = new galeria();
+                $galeria->setGaleria('galeria_empresas');
+                $galeria->deleteGaleria($this->id);
+            else:
+
             endif;
         endif;
         $this->deleta();
@@ -79,7 +79,7 @@ class empresa {
         $this->dados['capa'] = ($this->dados['capa'] == 'null' ? null : $this->dados['capa']);
         $this->dados['url'] = funcoes::Name($this->dados['titulo']);
         $this->dados['data_criacao'] = funcoes::validaData($this->dados['data_criacao']);
-        $this->dados['conteudo'] = html_entity_decode(strip_tags($this->dados['conteudo'],'<a>'));
+        $this->dados['conteudo'] = html_entity_decode(strip_tags($this->dados['conteudo'], '<a>'));
     }
 
     //SETA O NOME
@@ -96,13 +96,15 @@ class empresa {
         //VERIFICA SE EXISTE A IMAGEM E ENVIA PARA A PASTA.
         if (isset($this->dados['capa'])):
             //APAGA A CAPA ANTIGA.
-            $readCapa = new read();
-            $readCapa->ExeRead('empresas', "WHERE id = :id", "id={$this->id}");
-            $capaDel = '../uploads/' . $readCapa->getResultado()[0]['capa'];
-            if (file_exists($capaDel) && !is_dir($capaDel)):
-                unlink($capaDel);
+            if ($this->id):
+                $readCapa = new read();
+                $readCapa->ExeRead('empresas', "WHERE id = :id", "id={$this->id}");
+                $capaDel = '../uploads/' . $readCapa->getResultado()[0]['capa'];
+                if (file_exists($capaDel) && !is_dir($capaDel)):
+                    unlink($capaDel);
+                endif;
             endif;
-            
+
             //ENVIAR A CAPA NOVA.
             $capa = new files();
             $capa->enviarImagem($this->dados['capa'], $this->dados['url'], 'empresas');
@@ -135,18 +137,16 @@ class empresa {
             $this->error = 'Os dados foram atualizados com sucesso.';
         endif;
     }
-    
+
     //DELETA
     private function deleta() {
         $deletaEmp = new delete();
-        $deletaEmp->ExeDelete(self::tabela,"WHERE id = :id","id={$this->id}");
+        $deletaEmp->ExeDelete(self::tabela, "WHERE id = :id", "id={$this->id}");
         if ($deletaEmp->getResultado()):
             $this->resultado = true;
             $this->error = 'Os dados foram deletados com sucesso.';
-             header('refresh: 3; url=index.php?exe=empresas/index');
+            header('refresh: 3; url=index.php?exe=empresas/index');
         endif;
     }
 
-    
-    
 }

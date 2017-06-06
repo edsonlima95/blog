@@ -40,7 +40,7 @@ $delempresa = new empresa();
                 //PAGINAÇÃO.
                 $paginacao = new paginacao('http://localhost/blog/admin/index.php?exe=empresas/index&atual=');
                 $valorAtaul = filter_input(INPUT_GET,'atual',FILTER_VALIDATE_INT);
-                $paginacao->pagina($valorAtaul, 1);
+                $paginacao->pagina($valorAtaul, 10);
                 
                 //LER AS CATEGORIAS.
                 $readEmpresas->ExeRead('empresas', "ORDER BY titulo ASC, data_criacao DESC LIMIT :limit OFFSET :offset","limit={$paginacao->getLimit()}&offset={$paginacao->getOffset()}");

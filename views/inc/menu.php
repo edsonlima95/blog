@@ -8,16 +8,16 @@
     </div>
     <ul>
         <li><a href="<?=BASE?>">Home</a></li>
-        <li><a href="<?=BASE?>categorias/nome-da-categoria">Politica</a>
-        <li><a href="#">Esportes</a>
-        <li><a href="#">Mundo</a>
+        <li><a href="<?=BASE?>categorias/politica">Politica</a>
+        <li><a href="<?=BASE?>categorias/esportes">Esportes</a>
+        <li><a href="<?=BASE?>categorias/noticias">Mundo</a>
             <ul class="sub-menu-site">
                 <li><a href="#">link</a></li>
                 <li><a href="#">link</a></li>
                 <li><a href="#">link</a></li>
             </ul>
         </li>
-        <li><a href="<?=BASE?>empresas/nome-da-categoria-da-empresa">Empresas</a>
+        <li><a href="<?=BASE?>categorias/empresas">Empresas</a>
             <ul class="sub-menu-site">
                 <li><a href="#">link</a></li>
                 <li><a href="#">link</a></li>

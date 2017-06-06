@@ -53,7 +53,7 @@ class empresas {
         else:
             $readEmpresas = new read();
             $readEmpresas->ExeRead('empresas', "WHERE id_cat = :idc", "idc={$this->id}");
-            if ($readEmpresas->getResultado()[0]):
+            if ($readEmpresas->getResultado()):
                 $this->error = 'A categória não pode ser deletada, contém empresas cadastradas!';
             else:
                 $this->deleta();
