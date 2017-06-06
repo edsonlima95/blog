@@ -9,7 +9,7 @@
     header#cabecalho .midias-sociais span {display: none}
     header#cabecalho .midias-sociais ul li {display: inline-block; margin-right: 15px}
     header#cabecalho .logo p {font-size: 39px}
-    
+
     /*MENU.*/
     nav#menu-desk .botao-pesquisa {display: block}
     
@@ -17,47 +17,49 @@
     #slide-noticia .slide {margin-bottom: 10px}
     #slide-noticia #wowslider-container1 .ws_images p {font-size: 10px}
     .noticias-do-slide img {width: 98%; height: 177px;}
-    
+
     /*CATEGORIAS.*/
     main section.conteudo-esquerdo .bloco2 img {margin-left: 0}
     main section.conteudo-esquerdo .cat3 img {margin-left: 0; width: 100%}
     main section.conteudo-esquerdo .cat3 h3 {margin-left: 0}
     main section.conteudo-esquerdo .cat3 .bloco1-conteudo {margin-left: 0}
-    
+
     /*CAEGORIAS POSTS.*/
     main section.categorias .bloco1 {width: 98%}
     main section.categorias {padding-left: 15px}
-     
+
     /*ASIDE.*/
     aside.conteudo-direito img {margin-left: 0}  
-    
+
 }
 
 @media screen and (max-width:768px){
-     /*MENU*/
+    /*MENU*/
     nav#menu-desk ul {display: none}
     nav#menu-desk .botao-open {display: block; float: left}
-   
+    
+    /*MENU MOBILE.*/
+    nav#menu-mobile ul li.logo-mobile p {color: #898888; font-size: 30px}
+    nav#menu-mobile ul li.logo-mobile p strong {color: #289dcc}
 }
 
 @media screen and (min-width: 640px) and (max-width:959px){
     body {margin: 0px}
-  
+
     /*HEADER.*/
     header#cabecalho .logo p {margin: 55px; font-size: 40px; display: none; margin-left: 45px;}
     header#cabecalho .pesquisa {margin: 0px 30px 0px 0px; line-height: 165px; float: right;}
-    
+
     /*SLIDE*/
     .box-noticias-slide {margin-top: 10px}
     .noticias-do-slide img {width: 98%; height: 177px;}
-    
+
     /*CATEGORIAS POSTS*/
     main section.categorias .bloco1 {width: 48%}
     main section.categorias {padding-right: 50px}
     main section.categorias {padding-left: 15px}
     main section.categorias .bloco1 .bloco1-conteudo h1 {font-size: 17px}
     main section.categorias .bloco1 .bloco1-conteudo p {font-size: 14px}
-    
 }
 
 @media screen and (min-width: 960px) {

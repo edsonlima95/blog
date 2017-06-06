@@ -81,7 +81,7 @@ use app\conn\read;
                 ?>
             </ul>
         </li>
-        <li><a href="<?= BASE ?>categorias/empresas">Empresas</a>
+        <li><a href="<?= BASE ?>empresas/empresa-geral">Empresas</a>
             <ul class="sub-menu-site">
                 <?php
                 $readSubMenu = new read();

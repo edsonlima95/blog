@@ -17,6 +17,7 @@ main {width: 100%; background: #fff; margin: auto;}
 
 /*HEADER.*/
 header#cabecalho .logo, header#cabecalho .busca  {background: #fff; height: 180px;}
+header#cabecalho .logo a {text-decoration: none; color: #000}
 header#cabecalho .logo p {margin: 55px; font-size: 50px; display: none}
 header#cabecalho .logo p strong {color: #289dcc}
 header#cabecalho .pesquisa {margin: 0px 0px 0px 140px; line-height: 180px; float: left}

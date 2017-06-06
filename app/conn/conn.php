@@ -1,35 +1,38 @@
 <?php
 
 namespace app\conn;
+
 use PDO;
 
 class conn {
+    /*
+      id1842962_root
+     * id1842962_cidadenews
+     * 12345
+     */
 
-    //id1842962_root
-    //12345
-    //db: id1842962_cidadenews
-    
     private static $host = 'localhost';
     private static $user = 'root';
     private static $password = '';
     private static $db = 'cidadenews';
-    /** @var PDO tenho que informa que e uma var tipo PDO se nao, ele nao reconhece*/
+
+    /** @var PDO tenho que informa que e uma var tipo PDO se nao, ele nao reconhece */
     private static $conexao = null;
 
     public static function conexao() {
         try {
             if (self::$conexao == null):
-                $dsn = 'mysql:host='.self::$host.';dbname='.self::$db;
+                $dsn = 'mysql:host=' . self::$host . ';dbname=' . self::$db;
                 $options = [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8"];
                 self::$conexao = new PDO($dsn, self::$user, self::$password, $options);
             endif;
             self::$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return self::$conexao;
-            
         } catch (PDOException $e) {
             echo 'Erro ao tentar conectar' . $e->getMessage();
         }
     }
+
     public function Conn() {
         return self::conexao();
     }

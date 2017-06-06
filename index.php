@@ -3,12 +3,13 @@ ob_flush();
 session_start();
 require './app/config.php';
 require './vendor/autoload.php';
+
 use app\helper\funcoes;
 use app\helper\session;
 use app\helper\link;
+
 //GERENCIA A SESSAO DO SITE.
 $session = new session();
-
 ?>
 <html>
     <head>
@@ -32,28 +33,24 @@ $session = new session();
     <body>
         <div class="back-dark"></div>
         <div class="back-dark-2"></div>
-        
-        <nav id="menu-mobile">
-            <ul>
-                <a href="#" class="close-menu">X</a>
-                <li><a href="#">link</a></li>
-                <li><a href="#">link</a></li>
-                <li><a href="#">link</a></li>
-            </ul>
-        </nav>
-        <?php
-        //Cabealho
-        require 'views/inc/header.php';
-        //Menu
-        require 'views/inc/menu.php';
-      
-        funcoes::setHome();
          
+        <?php
+        //MENU MOBILE.
+        require 'views/inc/menu-mobile.php';
+        //CABEÇALHO
+        require 'views/inc/header.php';
+        //MENU-DESK
+        require 'views/inc/menu.php';
+
+        //RESPONSAVEL POR URL AMIGAVEL.
+        funcoes::setHome();
+
+        //FOOTER
         require 'views/inc/footer.php';
         ?>
         <!--BOTÃO VOLTA TOP.-->
         <div id="topo"><i class="fa fa-arrow-up fa-2x" aria-hidden="true"></i></div
-        
+
         <!--Scripts.-->
         <script src="<?= INLCUDE ?>/js/jquery.js" type="text/javascript"></script>
         <script src="<?= INLCUDE ?>/js/j_home.js" type="text/javascript"></script>
