@@ -48,6 +48,16 @@ class posts {
     //DELETA O POSTS.
     public function deletaPosts($id) {
         $this->id = $id;
+        
+         if ($this->id):
+            $readCapa = new read();
+            $readCapa->ExeRead('posts', "WHERE id = :id", "id={$this->id}");
+            $capaDel = '../uploads/' . $readCapa->getResultado()[0]['capa'];
+            if (file_exists($capaDel) && !is_dir($capaDel)):
+                unlink($capaDel);
+            endif;
+        endif;
+        
         $readPost = new read();
         $readPost->ExeRead('posts', "WHERE id = :id", "id={$this->id}");
         if ($readPost->getRowCount() > 0):

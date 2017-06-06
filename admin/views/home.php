@@ -53,13 +53,13 @@ $visitasPag = $read->getResultado()[0]['visitaspag'];
         foreach ($readPostsRecents->getResultado() as $resPosts):
             ?>
             <div class="grid-g-4 bloco-img">
-                <img src="<?php if($resPosts['capa']) echo 'http://localhost/blog/uploads/'.$resPosts['capa']; 
+                <img src="<?php if($resPosts['capa']) echo BASE.'uploads/'.$resPosts['capa']; 
                 else echo '../uploads/posts/posts-default.png'; ?>" width="100%" height="78">
             </div>
             <div class="grid-g-8 bloco-conteudo">
                 <h1><a href="#"><?= funcoes::limtarTextos($resPosts['titulo'], 40) ?></a></h1>   
                 <ul class="acoes">
-                    <li><a href="http://localhost/blog/artigo/<?= $resPosts['url'] ?>"><i class="fa fa-eye"></i></a></li>
+                    <li><a href="<?= BASE.'artigo/'.$resPosts['url'] ?>"><i class="fa fa-eye"></i></a></li>
                     <li><a href="index.php?exe=posts/update&idpost=<?= $resPosts['id'] ?>"><i class="fa fa-edit"></i></a></li>
                     <li><a href="index.php?exe=posts/index&action=deletar&iddelpost=<?= $resPosts['id'] ?>"><i class="fa fa-times"></i></a></li>
                 </ul>
@@ -77,13 +77,13 @@ $visitasPag = $read->getResultado()[0]['visitaspag'];
         foreach ($readEmpRecents->getResultado() as $resEmps):
             ?>
             <div class="grid-g-4 bloco-img">
-                <img src="<?php if($resEmps['capa']) echo 'http://localhost/blog/uploads/'.$resEmps['capa']; 
+                <img src="<?php if($resEmps['capa']) echo BASE.'uploads/'.$resEmps['capa']; 
                 else echo '../uploads/empresas/empresas-default.jpg'; ?>" width="100%" height="78">
             </div>
             <div class="grid-g-8 bloco-conteudo">
-                <h1><a href="#">Titulo do post que sera exibido aqui</a></h1>   
+                <h1><a href="#"></a><?= $resEmps['titulo'] ?></h1> 
                 <ul class="acoes">
-                    <li><a href="http://localhost/blog/artigo/<?= $resEmps['url'] ?>"><i class="fa fa-eye"></i></a></li>
+                    <li><a href="<?=BASE.'empresa/'.$resEmps['url'] ?>"><i class="fa fa-eye"></i></a></li>
                     <li><a href="index.php?exe=empresas/update&idemp=<?= $resEmps['id'] ?>"><i class="fa fa-edit"></i></a></li>
                     <li><a href="index.php?exe=empresas/index&iddelemp=<?= $resEmps['id'] ?>"><i class="fa fa-times"></i></a></li>
                 </ul>

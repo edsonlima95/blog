@@ -33,11 +33,11 @@ header#cabecalho .midias-sociais ul li a i {color: #555555}
 /*MENU DESKTOP.*/
 nav#menu-desk {width: 100%; height: 60px; background: #232323; display: table}
 nav#menu-desk ul {list-style: none; color: #fff; margin: 0 80px;}
-nav#menu-desk ul li {width: 100px; float: left; line-height: 60px; position: relative; text-align: center}
-nav#menu-desk ul li a {text-decoration: none; color: #fff; text-transform: uppercase; display: block;}
+nav#menu-desk ul li {display: inline-block; margin-right: 15px; line-height: 60px; position: relative; text-align: center}
+nav#menu-desk ul li a {text-decoration: none; color: #fff; text-transform: uppercase; display: block; padding: 0 5px}
 nav#menu-desk ul li a:hover {background: #289dcc;}
-nav#menu-desk ul li ul.sub-menu-site {display: none; position: absolute; z-index: 91}
-nav#menu-desk ul li ul.sub-menu-site li {background: #232323; margin-left: -80px;}
+nav#menu-desk ul li ul.sub-menu-site {display: none; position: absolute; z-index: 91; width: 150px}
+nav#menu-desk ul li ul.sub-menu-site li {background: #232323; margin-left: -80px; display: block}
 nav#menu-desk .botao-open {width: 40px; height: 40px; background: #232323; border-radius: 3px; border: 1px solid #fff; line-height: 60px; margin: 10px; float: right; display: none}
 nav#menu-desk .botao-open span i.fa-bars {color: #fff; position: relative;top: 2px; left: 5px; cursor: pointer}
 nav#menu-desk .botao-pesquisa {width: 40px; height: 40px; line-height: 60px; margin: 10px; float: right; display: none}

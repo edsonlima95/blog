@@ -16,7 +16,7 @@ $empresa = new empresa();
     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
     if (isset($dados) && $dados['enviar']):
-        $dados['status'] = $dados['enviar'] == 'Cadastrar' ? 0 : 1;
+        $dados['status'] = $dados['enviar'] == 'Cadastrar' ? '0': 1;
         unset($dados['enviar']);
         $dados['capa'] = $_FILES['capa']['tmp_name'] ? $_FILES['capa'] : 'null';
 

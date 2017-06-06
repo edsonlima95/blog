@@ -49,6 +49,15 @@ class empresa {
     public function deletaEmpresa($id) {
         $this->id = $id;
 
+        if ($this->id):
+            $readCapa = new read();
+            $readCapa->ExeRead('empresas', "WHERE id = :id", "id={$this->id}");
+            $capaDel = '../uploads/' . $readCapa->getResultado()[0]['capa'];
+            if (file_exists($capaDel) && !is_dir($capaDel)):
+                unlink($capaDel);
+            endif;
+        endif;
+
         $readEmp = new read();
         $readEmp->ExeRead('empresas', "WHERE id = :id", "id={$this->id}");
         if ($readEmp->getRowCount() > 0):

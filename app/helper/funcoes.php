@@ -47,10 +47,11 @@ class funcoes {
     }
 
     // pega o id da categoria informada.
-    public static function categoriaNome($nome) {
+    public static function categoriaNome($nome, $tabela = null) {
+        self::$dados = (isset($tabela) ? $tabela : 'categorias');
         $novo = ucfirst($nome);
         $read = new read();
-        $read->ExeRead('categorias', "WHERE nome = :nome", "nome={$novo}");
+        $read->ExeRead(self::$dados, "WHERE nome = :nome", "nome={$novo}");
         if ($read->getResultado()):
             return $read->getResultado()[0]['id'];
         else:
