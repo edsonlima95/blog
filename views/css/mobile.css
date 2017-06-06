@@ -13,6 +13,9 @@
     /*MENU.*/
     nav#menu-desk .botao-pesquisa {display: block}
     
+    /*SUB-MENU-MOBILE.*/
+    /*nav#menu-mobile ul li ul.sub-menu-mobile {display: none}*/
+    
     /*SLIDE.*/
     #slide-noticia .slide {margin-bottom: 10px}
     #slide-noticia #wowslider-container1 .ws_images p {font-size: 10px}
@@ -23,6 +26,9 @@
     main section.conteudo-esquerdo .cat3 img {margin-left: 0; width: 100%}
     main section.conteudo-esquerdo .cat3 h3 {margin-left: 0}
     main section.conteudo-esquerdo .cat3 .bloco1-conteudo {margin-left: 0}
+    
+    /*IMG DOS ARTIGOS.*/
+    main section.conteudo-esquerdo .bloco2 img {height: 200px}
 
     /*CAEGORIAS POSTS.*/
     main section.categorias .bloco1 {width: 98%}
@@ -41,6 +47,7 @@
     /*MENU MOBILE.*/
     nav#menu-mobile ul li.logo-mobile p {color: #898888; font-size: 30px}
     nav#menu-mobile ul li.logo-mobile p strong {color: #289dcc}
+    /*nav#menu-mobile ul li ul.sub-menu-mobile {display: none}*/
 }
 
 @media screen and (min-width: 640px) and (max-width:959px){

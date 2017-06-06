@@ -17,6 +17,11 @@ $(function () {
         $(this).find('ul.sub-menu-site').fadeOut('fast');
     });
     
+    //ABRE SUB-MENU-MOBILE
+    $('#menu-mobile li').on('click',function () {
+         $(this).find('ul.sub-menu-mobile').fadeToggle('fast');
+    });
+    
     //BOTAO PESQUISA.
     $('#menu-desk').find('.botao-pesquisa').on('click',function () {
         $('header#cabecalho .pesquisa').fadeToggle('fast');
@@ -27,6 +32,7 @@ $(function () {
     $('#menu-desk').find('.j_open').click(function () {
         $('nav#menu-mobile').find('ul').animate({width: 'toggle'});
         $('body').find('.back-dark').fadeIn('fast');
+        $('ul.sub-menu-mobile').css('display','none');
     });
     
     //Fecha o menu.
