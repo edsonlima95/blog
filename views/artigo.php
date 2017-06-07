@@ -48,6 +48,7 @@ endif;
             echo '<div class="info">O post não contém uma galeria de imagens.</div>';
         endif;
         ?>
+        <div class="fb-comments" data-href="http://localhost/blog/artigo/<?=$url?>"></div>
     </section>
 
     <!--ASIDE.-->

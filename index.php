@@ -33,7 +33,7 @@ $session = new session();
     <body>
         <div class="back-dark"></div>
         <div class="back-dark-2"></div>
-         
+
         <?php
         //MENU MOBILE.
         require 'views/inc/menu-mobile.php';
@@ -61,6 +61,19 @@ $session = new session();
         <script src="https://use.fontawesome.com/c148575fe9.js"></script>
         <!--SHADOWBOX.-->
         <script src="<?= INLCUDE ?>/js/shadowbox/shadowbox.js" type="text/javascript"></script>
+        <!--API FACEBOOK.-->
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9&appId=1041001732695607";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+         </script>
     </body>
 </html>
 <?php

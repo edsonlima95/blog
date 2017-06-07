@@ -10,7 +10,7 @@ use app\conn\read;
                 <p>Cidade <strong>News</strong></a>
             </div> 
         </li>
-        <li><a href="<?= BASE ?>categorias/politica">Politica</a>
+        <li>Politica
             <ul class="sub-menu-mobile">
                 <?php
                 $id = app\helper\funcoes::categoriaNome('politica');
@@ -24,7 +24,7 @@ use app\conn\read;
                 ?>
             </ul>
         </li>
-        <li><a href="<?= BASE ?>categorias/entretenimento">Entretenimento</a>
+        <li>Entretenimento
             <ul class="sub-menu-mobile">
                 <?php
                 $id = app\helper\funcoes::categoriaNome('entretenimento');
@@ -38,7 +38,7 @@ use app\conn\read;
                 ?>
             </ul>
         </li>
-        <li><a href="<?= BASE ?>categorias/esportes">Esportes</a>
+        <li>Esportes
             <ul class="sub-menu-mobile">
                 <?php
                 $id = app\helper\funcoes::categoriaNome('esportes');
@@ -52,7 +52,7 @@ use app\conn\read;
                 ?>
             </ul>
         </li>
-        <li><a href="<?= BASE ?>categorias/tecnologia">Tecnologia</a>
+        <li>Tecnologia
             <ul class="sub-menu-mobile">
                 <?php
                 $id = app\helper\funcoes::categoriaNome('tecnologia');
@@ -66,7 +66,7 @@ use app\conn\read;
                 ?>
             </ul>
         </li>
-        <li><a href="<?= BASE ?>categorias/noticias">Mundo</a>
+        <li>Mundo
             <ul class="sub-menu-mobile">
                 <?php
                 $id = app\helper\funcoes::categoriaNome('noticias');
@@ -80,7 +80,7 @@ use app\conn\read;
                 ?>
             </ul>
         </li>
-        <li><a href="<?= BASE ?>empresas/empresa-geral">Empresas</a>
+        <li>Empresas
             <ul class="sub-menu-mobile">
                 <?php
                 $readSubMenu = new read();
@@ -93,6 +93,5 @@ use app\conn\read;
                 ?>
             </ul>
         </li>
-        <li><a href="#">Contato</a></li>
     </ul>
 </nav>

@@ -2,21 +2,22 @@
     <div class="grid-g-6 grid-m-12 sobre">
         <h1>Cidade <span>News</span></h1>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            O cidade news blog e um portal feito para aquelas que são amantes de boas noticias seja da sua região ou em todo o mundo, e um portal simples com um toque de design especial que deixa não só sua aparência atraente como uma boa opção de leitura. O cidade news também conta com um cadastro de empresas aonde aquele que deseja obter mais conhecimento do seu negocio, e aumentar suas vendas poderá ser cadastrado.
         </p>
     </div>
     <div class="grid-g-3 grid-m-6 links">
-        <h1>links</h1>
+        <h1>links Úteis</h1>
     </div>
     <div class="grid-g-3 grid-m-6 recomendo">
-        <h1>Recomendo</h1>
-    </div>
+        <h1>Nossa Página.</h1>
+        <div style="text-align: center" class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+        </div>
 </footer>
 <div class="grid-g-12 direitos">
-    <div class="grid-g-6"> 
-       <h2>Copyright</h2>
-    </div>
-    <div class="grid-g-6 feito-por">
-        <h2>Desenvolvido por Edson Lima</h2>
+    <div class="grid-g-12" style="text-align: center; color: #ccc"> 
+        <h2>© 2017, Cidade News blog. Todos os Direitos Reservados!<br>
+            Orgulhosamente desenvolvido por <a href="https://www.facebook.com/edson.araujo.355744" target="_blank" style="color: #ccc">Edson Lima</a></h2>
     </div> 
 </div>

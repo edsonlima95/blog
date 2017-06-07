@@ -36,7 +36,12 @@
 
     /*ASIDE.*/
     aside.conteudo-direito img {margin-left: 0}  
-
+    
+    /*IMG DO ARTIGO SINGLE.*/
+    section.artigo img {height: 300px}
+    
+    /*TOP POSTS E EMPRESAS IMG.*/
+    aside.conteudo-direito img {height: 200px}
 }
 
 @media screen and (max-width:768px){

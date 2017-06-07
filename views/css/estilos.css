@@ -46,13 +46,13 @@ nav#menu-desk .botao-pesquisa i.fa-search {color: #fff; position: relative; top:
 
 /*MENU MOBILE.*/
 nav#menu-mobile ul {background: #232323; width: 181px; padding: 10px; position: fixed; z-index: 100; height: 100%; margin: 0; display: none}
-nav#menu-mobile ul li {display: block; text-align: center; margin: 20px 0 20px 0;}
-nav#menu-mobile ul li a {color: #fff; text-decoration: none}
+nav#menu-mobile ul li {display: block; color: #fff; text-align: center; margin: 20px 0 20px 0;}
 nav#menu-mobile ul .close-menu {float: right}
 nav#menu-mobile ul .close-menu {float: right; text-decoration: none; color: #fff}
 nav#menu-mobile ul li ul.sub-menu-mobile {background: #232323; height: auto; margin-left: 170px; margin-top: -20px; display: none}
 nav#menu-mobile ul li ul.sub-menu-mobile li {margin: 10px 0 10px 0;}
 nav#menu-mobile ul li ul.sub-menu-mobile li {text-align: left;}
+nav#menu-mobile ul li ul.sub-menu-mobile li a {color: #fff; text-decoration: none}
 
 /*SLIDE E NOTICIAS.*/
 #wowslider-container1 .ws_images h1 {margin-bottom: 10px}
@@ -151,8 +151,8 @@ aside.conteudo-direito .bloco2-conteudo a {color: #333333; text-decoration: none
 
 /*FOOTER.*/
 footer {background: #232323; padding: 10px;}
-footer h1 {text-align: center; color: #289dcc; border-bottom: 2px solid #666; margin-bottom: 15px}
-footer .sobre, footer .links, footer .recomendo {padding: 10px; height: 300px; color: #B4B3B3}
+footer h1 {text-align: center; color: #289dcc; border-bottom: 2px solid #666; margin-bottom: 30px}
+footer .sobre, footer .links, footer .recomendo {padding: 10px; height: 250px; color: #B4B3B3;}
 footer .sobre h1 {color: #898888;}
 footer .sobre h1 span {color: #289dcc}
 

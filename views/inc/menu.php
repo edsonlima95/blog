@@ -94,6 +94,5 @@ use app\conn\read;
                 ?>
             </ul>
         </li>
-        <li><a href="#">Contato</a></li>
     </ul>
 </nav>
