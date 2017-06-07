@@ -1,4 +1,4 @@
-<section class="grid-g-12 estilo-form" style="height: 100%">
+<section class="grid-g-12 estilo-form">
     <div class="bread">
         <a href="index">Home</a>
         <span>/</span>

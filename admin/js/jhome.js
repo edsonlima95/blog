@@ -4,6 +4,8 @@ $(function () {
     $('.menu-lateral').find('ul li').click(function () {
         $(this).find('ul.sub-lateral').slideToggle('fast');
     });
+    
+    
 
     //ESTADOS E CIDADES.
     $('#estado').change(function () {
@@ -27,6 +29,8 @@ $(function () {
           var id = $(this).attr('id');
           $('table tr.sub-cat-tabela').find('td[id='+id+']').slideToggle('fast');
     });
+    
+    Shadowbox.init();
     
     
 });

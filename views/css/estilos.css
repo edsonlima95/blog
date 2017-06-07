@@ -72,7 +72,7 @@ section::before, section::after {
 main section.conteudo-esquerdo, main aside.conteudo-direito {background: #fff; padding: 15px;}
 /*CATEGORIAS 1.*/
 main section.conteudo-esquerdo .bloco1 img {width: 100%; height:200px}
-main section.conteudo-esquerdo .bloco1-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 10px; height: 173px}
+main section.conteudo-esquerdo .bloco1-conteudo {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); padding: 10px; height: 173px; margin-bottom: 20px}
 main section.conteudo-esquerdo .bloco1-conteudo a, main section.conteudo-esquerdo .bloco2-conteudo a {color: #333333; text-decoration: none; font-weight: initial}
 main section.conteudo-esquerdo .bloco1-conteudo a:hover {color: #289dcc}
 main section.conteudo-esquerdo .bloco1-conteudo p {color: #696565;}
@@ -106,6 +106,9 @@ section.artigo .artigo-conteudo p {color: #333; font-size: 20px; margin: 30px 0}
 section.artigo .artigo-conteudo h2 {color: #333333; font-weight: normal}
 section.artigo .artigo-conteudo time {position: absolute; top: 10px; color: #888888;}
 section.artigo .artigo-conteudo i.criador {position: absolute; top: 10px; color: #888888; left: 130px}
+
+/*ARTIGOS RELACIONADOS.*/
+section.artigo article.relacionados p {background: rgba(0,0,0,0.6);color: #fff;position: absolute;top: 0px;height: 200px;padding: 20px 10px;font-size: 24px;}
 
 /*EMPRESA SINGLE.*/
 section.artigo ul.descricao-empresa {list-style: none; background: #f9f1f166; padding: 10px; margin-bottom: 20px; border-radius: 10px}

@@ -6,7 +6,8 @@
         </p>
     </div>
     <div class="grid-g-3 grid-m-6 links">
-        <h1>links Úteis</h1>
+        <h1>Nos encontre</h1>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253581.7628231022!2d-39.45265914641833!3d-6.7436044786087965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7a3b2cf1c1db07f%3A0xdc6b5e86af5bfde7!2sV%C3%A1rzea+Alegre+-+CE!5e0!3m2!1spt-BR!2sbr!4v1496853697413" width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
     <div class="grid-g-3 grid-m-6 recomendo">
         <h1>Nossa Página.</h1>

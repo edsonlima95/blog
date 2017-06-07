@@ -81,7 +81,7 @@ $visitasPag = $read->getResultado()[0]['visitaspag'];
                 else echo '../uploads/empresas/empresas-default.jpg'; ?>" width="100%" height="78">
             </div>
             <div class="grid-g-8 bloco-conteudo">
-                <h1><a href="#"></a><?= $resEmps['titulo'] ?></h1> 
+                <h1><a href="#"><?= $resEmps['titulo'] ?></a></h1> 
                 <ul class="acoes">
                     <li><a href="<?=BASE.'empresa/'.$resEmps['url'] ?>"><i class="fa fa-eye"></i></a></li>
                     <li><a href="index.php?exe=empresas/update&idemp=<?= $resEmps['id'] ?>"><i class="fa fa-edit"></i></a></li>

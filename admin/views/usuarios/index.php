@@ -37,10 +37,9 @@ $deluser= new usuarios();
             </thead>
             <tbody>
                 <?php
-                $paginacao = new paginacao('http://localhost/blog/admin/index.php?exe=usuarios/index&atual=');
+                $paginacao = new paginacao(BASE.'admin/index.php?exe=usuarios/index&atual=');
                 $valorAtaul = filter_input(INPUT_GET,'atual',FILTER_VALIDATE_INT);
-                $paginacao->pagina($valorAtaul, 1);
-                
+                $paginacao->pagina($valorAtaul, 10);
                 
                 //LER AS USUARIOS.
                 $readUser->ExeRead('usuarios', "ORDER BY nome ASC, data_criacao DESC LIMIT :limit OFFSET :offset","limit={$paginacao->getLimit()}&offset={$paginacao->getOffset()}");

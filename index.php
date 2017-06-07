@@ -35,10 +35,10 @@ $session = new session();
         <div class="back-dark-2"></div>
 
         <?php
-        //MENU MOBILE.
-        require 'views/inc/menu-mobile.php';
         //CABEÇALHO
         require 'views/inc/header.php';
+        //MENU MOBILE.
+        require 'views/inc/menu-mobile.php';
         //MENU-DESK
         require 'views/inc/menu.php';
 

@@ -66,7 +66,27 @@ $read = new read();
                 <time><i class="fa fa-calendar"> <?= date('d-m-Y', strtotime($resTec['data_criacao'])) ?></i></time>
                 <p class="criado"><i class="fa fa-eye"> Visitas <?= $resTec['visitas'] ?></i></p>
             </div>
+            <!--3 aritgos categoria 2.-->
+        <div class="grid-g-12 grid-m-12 bloco2 art3">
+            <?php
+            $read->setPlaces("idc={$idcat2}&limit=3&offset=1");
+            foreach ($read->getResultado() as $restec2):
+                ?>
+                <div class="grid-g-3 grid-m-3">
+                    <a href="<?= BASE . 'artigo/' . $restec2['url'] ?>"><img src="<?= BASE . 'uploads/' . $restec2['capa'] ?>" alt="<?= $restec2['titulo'] ?>" title="<?= $restec2['titulo'] ?>"></a>
+                </div>
+                <div class="grid-g-9 grid-m-9 bloco2-conteudo">
+                    <h1><a href="<?= BASE . 'artigo/' . $restec2['url'] ?>"><?= funcoes::limtarTextos($restec2['titulo'], 50) ?></a></h1>
+                    <time><i class="fa fa-calendar"> <?= date('d-m-Y', strtotime($restec2['data_criacao'])) ?></i></time>
+                    <p class="criado"><i class="fa fa-eye"> Visitas <?= $restec2['visitas'] ?></i></p>
+                </div>
+                <?php
+            endforeach;
+            ?>
         </div>
+        </div>
+        
+        
 
 
         <!--CATEGORIA 3.-->
@@ -90,24 +110,7 @@ $read = new read();
             </div>
         </div>
 
-        <!--3 aritgos categoria 2.-->
-        <div class="grid-g-6 grid-m-6 bloco2 art3">
-            <?php
-            $read->setPlaces("idc={$idcat2}&limit=3&offset=1");
-            foreach ($read->getResultado() as $restec2):
-                ?>
-                <div class="grid-g-3 grid-m-3">
-                    <a href="<?= BASE . 'artigo/' . $restec2['url'] ?>"><img src="<?= BASE . 'uploads/' . $restec2['capa'] ?>" alt="<?= $restec2['titulo'] ?>" title="<?= $restec2['titulo'] ?>"></a>
-                </div>
-                <div class="grid-g-9 grid-m-9 bloco2-conteudo">
-                    <h1><a href="<?= BASE . 'artigo/' . $restec2['url'] ?>"><?= funcoes::limtarTextos($restec2['titulo'], 50) ?></a></h1>
-                    <time><i class="fa fa-calendar"> <?= date('d-m-Y', strtotime($restec2['data_criacao'])) ?></i></time>
-                    <p class="criado"><i class="fa fa-eye"> Visitas <?= $restec2['visitas'] ?></i></p>
-                </div>
-                <?php
-            endforeach;
-            ?>
-        </div>
+        
 
         <!--3 aritgos categoria 3.-->
         <div class="grid-g-6 grid-m-6 bloco2 art4">

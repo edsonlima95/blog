@@ -68,9 +68,30 @@ endif;
             echo '<div class="info">A empresa não contém uma galeria de imagens.</div>';
         endif;
         ?>
+        <div class="fb-comments" data-width="100%" data-href="http://localhost/blog/artigo/<?= $url ?>"></div>
+        <article class="relacionados">
+            <!--Galeria.-->
+            <h3 class="titulo-galeria">
+                <span>Veja também</span>
+            </h3>
+            <?php
+            $readRel = new read();
+            $readRel->ExeRead('empresas', "WHERE id <> :id AND id_cat = :idc ORDER BY rand() LIMIT 3", "idc={$id_cat}&id={$id}");
+            if ($readRel->getResultado()):
+                foreach ($readRel->getResultado() as $resE):
+                    ?>
+                    <div class="grid-g-4" style="word-break: break-all; position: relative">
+                        <img src="<?= BASE . 'uploads/' . $resE['capa'] ?>" alt="<?= $resE['titulo'] ?>" title="<?= $resE['titulo'] ?>" style="height: 200px; width: 100%">
+                        <a href=""><p class="titulo-rel"><?= funcoes::limtarTextos($resE['titulo'], 70) ?></p></a>
+                    </div>
+                    <?php
+                endforeach;
+                else:
+                    echo '<div class="info">A empresa não contém empresas relacionadas.</div>';
+            endif;
+            ?>
+        </article>
     </section>
-
     <!--ASIDE.-->
     <?php require 'inc/aside.php'; ?>
-
 </main>

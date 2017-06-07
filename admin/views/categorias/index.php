@@ -43,7 +43,7 @@ $readCategoriaSub = clone $readCategoria;
             </thead>
             <tbody>
                 <?php
-                $paginacao = new paginacao('http://localhost/blog/admin/index.php?exe=categorias/index&atual=');
+                $paginacao = new paginacao(BASE.'admin/index.php?exe=categorias/index&atual=');
                 $valorAtaul = filter_input(INPUT_GET,'atual',FILTER_VALIDATE_INT);
                 $paginacao->pagina($valorAtaul, 5);
                 
@@ -58,8 +58,8 @@ $readCategoriaSub = clone $readCategoria;
                        <tr class="row-cat" id="<?= $catPai['id'] ?>">
                             <td><?= $catPai['id'] ?></td>
                             <td><?= $catPai['nome'] ?></td>
-                            <td><?= $catPai['titulo'] ?></td>
-                            <td><?= funcoes::limtarTextos($catPai['conteudo'], 40) ?></td>
+                            <td><?= funcoes::limtarTextos($catPai['titulo'],30); ?></td>
+                            <td><?= funcoes::limtarTextos($catPai['conteudo'], 30) ?></td>
                             <td><?= $countSub ?></td>                          
                             <td><?= date('d/m/Y H:i', strtotime($catPai['data_criacao'])) ?></td>
                             <td style="text-align: center">
@@ -93,6 +93,7 @@ $readCategoriaSub = clone $readCategoria;
                 ?>
             </tbody>
         </table>
+        
     </div>
     <div class="paginator">
         <?php

@@ -14,13 +14,12 @@ use app\conn\read;
         $readTopPosts->ExeRead('posts', "ORDER BY visitas DESC LIMIT 5");
 
         foreach ($readTopPosts->getResultado() as $resTopp):
-            extract($resTopp);
             ?>
             <div class="grid-g-3 grid-m-3">
-                <img src="<?= BASE . 'uploads/' . $resTopp['capa']; ?>" alt="<?= $resTopp['titulo']; ?>" title="<?= $resTopp['titulo']; ?>">
+                <a href="<?= BASE . 'artigo/' . $resTopp['url']; ?>"><img src="<?= BASE . 'uploads/' . $resTopp['capa']; ?>" alt="<?= $resTopp['titulo']; ?>" title="<?= $resTopp['titulo']; ?>"></a>
             </div>
             <div class="grid-g-9 grid-m-9 bloco2-conteudo">
-                <h1><a href="#"><?= funcoes::limtarTextos($resTopp['titulo'], 50) ?></a></h1>
+                <h1><a href="<?= BASE . 'artigo/' . $resTopp['url']; ?>"><?= funcoes::limtarTextos($resTopp['titulo'], 50) ?></a></h1>
                 <time><i class="fa fa-calendar"> <?= date('d-m-Y', strtotime($resTopp['data_criacao'])) ?></i></time>
                 <p class="criado"><i class="fa fa-eye"> Visitas <?= $resTopp['visitas']; ?></i></p>
             </div>

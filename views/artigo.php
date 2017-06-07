@@ -19,7 +19,7 @@ endif;
     <section class="grid-g-8 conteudo-esquerdo artigo">  
         <h1><?= $titulo ?></h1>
         <!--Artigo.-->
-        <img src="<?=BASE.'uploads/'.$capa?>" alt="<?= $titulo ?>" title="<?= $titulo ?>">
+        <img src="<?= BASE . 'uploads/' . $capa ?>" alt="<?= $titulo ?>" title="<?= $titulo ?>">
         <div class="artigo-conteudo">
             <p class="conteudo">
                 <?= $conteudo ?>
@@ -48,7 +48,29 @@ endif;
             echo '<div class="info">O post não contém uma galeria de imagens.</div>';
         endif;
         ?>
-        <div class="fb-comments" data-href="http://localhost/blog/artigo/<?=$url?>"></div>
+        <div class="fb-comments" data-width="100%" data-href="http://localhost/blog/artigo/<?= $url ?>"></div>
+        <article class="relacionados">
+            <!--Galeria.-->
+            <h3 class="titulo-galeria">
+                <span>Veja também</span>
+            </h3>
+            <?php
+            $readRel = new read();
+            $readRel->ExeRead('posts', "WHERE id <> :id AND id_sub = :ids ORDER BY rand() LIMIT 3", "ids={$id_sub}&id={$id}");
+            if ($readRel->getResultado()):
+                foreach ($readRel->getResultado() as $resRel):
+                    ?>
+                    <div class="grid-g-4" style="word-break: break-all; position: relative">
+                        <img src="<?= BASE . 'uploads/' . $resRel['capa'] ?>" alt="<?= $resRel['titulo'] ?>" title="<?= $resRel['titulo'] ?>" style="height: 200px">
+                        <a href=""><p class="titulo-rel"><?= funcoes::limtarTextos($resRel['titulo'], 70) ?></p></a>
+                    </div>
+                    <?php
+                endforeach;
+                else:
+                    echo '<div class="info">O post não contém posts relacionados.</div>';
+            endif;
+            ?>
+        </article>
     </section>
 
     <!--ASIDE.-->

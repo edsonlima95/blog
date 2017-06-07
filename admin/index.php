@@ -29,24 +29,25 @@ endif;
         <!--header.-->
         <?php require 'inc/menu.php';?>
         
-        <main class="grid-g-10 grid-m-12 grid-p-12" style="float: right">
+        <main class="grid-g-10 grid-m-12 grid-p-12" style="float: right; position: relative; min-height: 100%">
             <?php
             $exe = filter_input(INPUT_GET,'exe',FILTER_DEFAULT);
             funcoes::frontController($exe);
             ?>
+        <?php require 'inc/footer.php';?>
         </main>
        <!--footer.-->
-        <?php require 'inc/footer.php';?>
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/jgrids.js" type="text/javascript"></script>
         <script src="js/jhome.js" type="text/javascript"></script>
         <!--fontawesome.-->
         <script src="https://use.fontawesome.com/c148575fe9.js"></script>
-        <!--Goggle grafico.-->
+<!--        Goggle grafico.
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script src="js/ggrafico.js" type="text/javascript"></script>
+        <script src="js/ggrafico.js" type="text/javascript"></script>-->
         <script src="js/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
         <script src="js/tinny.js" type="text/javascript"></script>
+        <script src="<?= BASE ?>/js/shadowbox/shadowbox.js" type="text/javascript"></script>
     </body>
 </html>
 <?php ob_end_flush(); ?>

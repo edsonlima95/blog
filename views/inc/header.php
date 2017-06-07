@@ -23,12 +23,12 @@
         <div class="pesquisa">
             <?php
             $search = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-            if (isset($search['busca'])):
+            if ($search['busca']):
                 header('Location: ' . BASE . 'pesquisa/' . $search['busca']);
             endif;
             ?>
             <form name="busca-geral" method="post" class="busca-geral">
-                <input type="search" required="required" name="busca" placeholder="Busca">
+                <input type="search" name="busca" placeholder="Busca">
                 <span><i class="fa fa-search j_send"></i></span>
             </form>
         </div>

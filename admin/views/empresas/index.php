@@ -38,7 +38,7 @@ $delempresa = new empresa();
             <tbody>
                 <?php
                 //PAGINAÇÃO.
-                $paginacao = new paginacao('http://localhost/blog/admin/index.php?exe=empresas/index&atual=');
+                $paginacao = new paginacao(BASE.'admin/index.php?exe=empresas/index&atual=');
                 $valorAtaul = filter_input(INPUT_GET,'atual',FILTER_VALIDATE_INT);
                 $paginacao->pagina($valorAtaul, 10);
                 

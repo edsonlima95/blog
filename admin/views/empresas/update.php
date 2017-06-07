@@ -159,8 +159,8 @@
             foreach ($readGal->getResultado() as $resGal):    
             ?>
             <div class="grid-g-3 grid-m-3">
-                    <a href="<?= 'http://localhost/blog/uploads/'.$resGal['caminho'];?>" rel="shadowbox[idpost]">
-                        <img src="<?= 'http://localhost/blog/uploads/'.$resGal['caminho'];?>" alt="" title="" width="100%" height="170px">
+                    <a href="<?= BASE.'/uploads/'.$resGal['caminho'];?>" rel="shadowbox[idpost]">
+                        <img src="<?= BASE.'/uploads/'.$resGal['caminho'];?>" alt="" title="" width="100%" height="170px">
                         <a href="index.php?exe=empresas/update&idemp=<?=$dados['id']?>&iddelgal=<?=$resGal['id']?>"><i class="fa fa-times del"></i></a>
                     </a>
                 </div>

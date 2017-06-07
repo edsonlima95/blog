@@ -1,9 +1,13 @@
+body {height: 100%}
+
+/*HEADER.*/
 header.cabecalho {background: #232323; padding: 10px; height: 60px; position: fixed; z-index: 99}
 header.cabecalho > p a {float: left; line-height: 37px;margin-left: 51px;font-size: 25px;color: #08bdb6; text-decoration: none}
 header.cabecalho nav.menu-perfil ul {list-style: none; line-height: 38px; float: right; margin-right: 50px; }
 header.cabecalho nav.menu-perfil ul li {position: relative}
 header.cabecalho nav.menu-perfil ul li a {color: #fff; text-decoration: none; margin-left: 10px}
 header.cabecalho nav.menu-perfil ul li i.fa-user {color: #fff;}
+header.cabecalho .botao-open {width: 27px; height: 0px; margin-left: 5px; color: #ccc}
 
 /*MENU LATERAL.*/
 nav.menu-lateral {padding: 10px; height: 100%; background: #232323; border-top: 1px solid #ccc; position: fixed; top: 60px; z-index: 99}
@@ -18,7 +22,7 @@ nav.menu-lateral ul.sub-lateral {display: none; background: #232323; padding: 5p
 nav.menu-lateral ul.sub-lateral li {border-bottom: none; text-align: left; margin-left: 20px}
 
 /*PRINCIPAL.*/
-main {padding: 15px; margin-top: 60px; float: right; background: #efe9e9}
+main {padding: 15px; margin-top: 60px; float: right; background: #efe9e9;}
 main section.admin {margin-bottom: 20px; background: #fff; padding: 10px; border-radius: 10px}
 main section.admin h1 {color: #9c9999; font-size: 32px; font-weight: normal; margin-bottom: 15px}
 main section.admin article {background: #000; color: #ccc; padding: 10px; margin-bottom: 10px; margin-right: 10px; border-radius: 10px}
@@ -42,7 +46,7 @@ main section.estilo-form input, main section.estilo-form select {width: 100%; bo
 main section.estilo-form input[type="submit"] {width: auto; padding: 5px; float: right; margin-left: 10px; margin-top: 10px; cursor: pointer; color: #fff;}
 
 /*FOOTER.*/
-footer {background: #232323; height: 50px; float: right !important}
+footer {background: #232323; height: 50px; float: right !important; position: absolute; bottom: -50px; left: 0px}
 footer .feito p, footer .direitos p {color: #9c9999; line-height: 50px; margin-left: 20px}
 
 /*TABELA.*/
