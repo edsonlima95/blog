@@ -37,7 +37,7 @@ main section.artigos .bloco-conteudo h1 {margin-bottom: 10px}
 main section.artigos .bloco-conteudo ul.acoes {list-style: none; text-align: center}
 main section.artigos .bloco-conteudo ul.acoes li {display: inline-block; margin-right: 15px}
 main section.artigos .bloco-conteudo ul.acoes li a i {color: #666}
-main section.artigos .bloco-with {width: 48%}
+main section.artigos .bloco-with {width: 48%;}
 
 /*FORM.*/
 main section.estilo-form {padding: 10px; background: #fff; border-radius: 10px;}

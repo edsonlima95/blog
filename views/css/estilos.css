@@ -6,7 +6,7 @@ body {background: #f6f6f6; margin: 0 80px;}
 
 /*TITULOS.*/ 
 section.conteudo-esquerdo h3 {border-bottom: 4px solid #81d742; margin-bottom: 20px;}
-section.conteudo-esquerdo h3 span {background-color: #81d742; padding: 7px 7px 0px 7px; color: #fff; font-weight: initial}
+section.conteudo-esquerdo h3 span {background-color: #81d742; padding: 7px 7px 1px 7px; color: #fff; font-weight: initial}
 section.conteudo-esquerdo  .cat2 h3.titulo-cat2 {border-bottom: 4px solid #bd4cce}
 section.conteudo-esquerdo  .cat2 h3.titulo-cat2 span {background-color: #bd4cce;}
 section.conteudo-esquerdo  .cat3 h3.titulo-cat3 {border-bottom: 4px solid #777fce}

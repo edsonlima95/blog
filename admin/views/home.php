@@ -2,6 +2,7 @@
 
 use app\conn\read;
 use app\helper\funcoes;
+use app\helper\galeria;
 
 $read = new read();
 
@@ -29,6 +30,7 @@ $visitas = $read->getResultado()[0]['visitas'];
 $read->executeQuery('SELECT SUM(visitas_paginas) AS visitaspag FROM site_visitas');
 $visitasPag = $read->getResultado()[0]['visitaspag'];
 
+//DELETA A PUBLICIDADE.
 
 ?>
 <section class="grid-g-12 grid-m-12 admin">
@@ -40,8 +42,8 @@ $visitasPag = $read->getResultado()[0]['visitaspag'];
     <article class="grid-g-3 grid-m-4" style="background: #dd5a5a"><i class="fa fa-eye fa-3x"></i><p>V. Páginas <?=$visitasPag?></p></article>
     <article class="grid-g-3 grid-m-4" style="background: #bd0707"><i class="fa fa-building-o fa-3x"></i><p>Empresas <?=$numempresas?></p></article>
 </section>
-<section class="grid-g-4" style="padding: 5px">
-
+<section class="grid-g-4 grid-m-12 grid-p-12 artigos">
+     
 </section>
 <section class="grid-g-8 artigos">
     <div class="grid-g-6 grid-m-6 grid-p-12" style="margin-right: 10px">

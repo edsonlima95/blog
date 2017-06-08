@@ -53,5 +53,18 @@ use app\conn\read;
         <h3>
             <span>Nossos parceiros</span>
         </h3>
+        <div class="grid-g-12">
+            <?php
+            $readPub = new read();
+            $readPub->ExeRead('publicidades', "ORDER BY data_criacao LIMIT 6");
+            foreach ($readPub->getResultado() as $resPub):
+                ?>
+            <figure>
+                <img src="<?= BASE . 'uploads/' . $resPub['caminho'] ?>" alt="<?= $resPub['nome'] ?>" title="<?= $resPub['nome'] ?>" style="margin: 0 0 5px 0; height: 125px">
+            </figure>
+                <?php
+            endforeach;
+            ?>
+        </div>
     </section>
 </aside>

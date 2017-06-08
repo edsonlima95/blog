@@ -17,13 +17,15 @@ $file = new files();
         if (in_array('', $dados)):
             echo '<div class="alert">Preencha todos os campos com * !<span class="x">X</span></div>';
         else:
+            $dados['caminho'] = $_FILES['caminho'];
+            
             //Envia a capa.
-            $file->enviarImagem($_FILES['capa'], funcoes::Name($dados['nome']), 'publicidade');
+            $file->enviarImagem($dados['caminho'], funcoes::Name($dados['nome']), 'publicidade');
 
             //Salva no banco o caminho.
             if (isset($file) && $file->getResultado()):
                 //SETA DADOS.
-                $dados['capa'] = $file->getResultado();
+                $dados['caminho'] = $file->getResultado();
                 $dados['data_criacao'] = date('Y-m-d H:i:s');
                 
                 //SALVA NO BANCO.
@@ -42,7 +44,7 @@ $file = new files();
     <form method="post" enctype="multipart/form-data" class="grid-g-9 grid-m-12">
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px;">
             <label for="capa">Publicidade <span style="color: red">*</span></label>
-            <input type="file" name="capa" id="capa" placeholder="Capa" style="padding: 0px">
+            <input type="file" name="caminho" id="capa" placeholder="Capa" style="padding: 0px">
         </div>
         <div class="grid-g-5 grid-m-5">
             <label for="nome">Nome <span style="color: red">*</span></label>
