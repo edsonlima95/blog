@@ -27,7 +27,8 @@ $login = new Logar();
 
             //Verifica o tipo de alerta.
             if ($action == 'sair'):
-                echo '<div class="success">Você deslogou do sistema com sucesso parabens!<span class="x">x</span></div>';
+                echo '<div class="success">Você deslogou do sistema com sucesso!<span class="x">x</span></div>';
+                header('Refresh: 2; url=login.php');
             endif;
 
             if (isset($dados) && $dados['enviar']):

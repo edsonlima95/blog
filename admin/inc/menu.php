@@ -2,13 +2,19 @@
     <ul>
         <li class="img-perfil">
             <?php
+
             use app\conn\read;
-            $id = $_SESSION['user']['id'];
+            
             $readUserImg = new read();
-            $readUserImg->ExeRead('usuarios',"WHERE id = :id","id={$id}");
-            $userimg = $readUserImg->getResultado()[0]['capa'];        
+            $readUserImg->ExeRead('usuarios', "WHERE id = :id", "id={$user['id']}");
+            $userimg = $readUserImg->getResultado()[0]['capa'];
             ?>
-            <img src="<?php if($userimg) echo '../uploads/'.$userimg; else echo 'img/perfil.png'; ?>" width="100" height="100">
+            <img src="<?php
+            if ($userimg)
+                echo '../uploads/' . $userimg;
+            else
+                echo 'img/perfil.png';
+            ?>" width="100" height="100">
         </li>
         <li><a>Categorias <i class="fa fa-chevron-right"></i></a>
             <ul class="sub-lateral">
@@ -34,12 +40,18 @@
                 <li><a href="index.php?exe=empresas/index">Editar e excluir</a></li>
             </ul>
         </li>
-        <li><a>Usuários <i class="fa fa-chevron-right"></i></a>
-            <ul class="sub-lateral">
-                <li><a href="index.php?exe=usuarios/criar">Criar novo</a></li>
-                <li><a href="index.php?exe=usuarios/index">Editar e excluir</a></li>
-            </ul>
-        </li>
-        
+        <?php
+        if ($user['id'] == 1):
+            ?>
+            <li><a>Usuários <i class="fa fa-chevron-right"></i></a>
+                <ul class="sub-lateral">
+                    <li><a href="index.php?exe=usuarios/criar">Criar novo</a></li>
+                    <li><a href="index.php?exe=usuarios/index">Editar e excluir</a></li>
+                </ul>
+            </li>
+            <?php
+            else:
+        endif;
+        ?>
     </ul>
 </nav>

@@ -1,4 +1,4 @@
-<section class="grid-g-12 estilo-form" style="height: 100%">
+<section class="grid-g-12 estilo-form">
     <h1>Cadastrar usuários</h1>
     
     <?php

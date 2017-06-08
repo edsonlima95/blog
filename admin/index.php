@@ -10,11 +10,7 @@ require '../app/config.php';
 $login = new Logar();
 
 //DESLOGA DO SISTEMA.
-//$sair = filter_input(INPUT_GET, 'logoff', FILTER_DEFAULT);
-//if ($sair == true):
-////    unset($_SESSION['user']);
-//    header('Location: login.php?action=sair');
-//endif;
+$sair = filter_input(INPUT_GET, 'logoff', FILTER_DEFAULT);
 
 //VERIFICA SE A SESSAO TA CRIADA.
 if (!$login->checkSession()):
@@ -23,6 +19,14 @@ if (!$login->checkSession()):
 else:
     $user = $_SESSION['user'];
 endif;
+
+//VERIFICA SE O LOGOFF E TRUE, TEM QUE ESTA ABAIXO DO VERIFICA SESSAO.
+if ($sair == true):
+    unset($_SESSION['user']);
+    header('Location: login.php?action=sair');
+endif;
+
+
 ?>
 <html>
     <head>
@@ -52,9 +56,6 @@ endif;
         <script src="js/jhome.js" type="text/javascript"></script>
         <!--fontawesome.-->
         <script src="https://use.fontawesome.com/c148575fe9.js"></script>
-        <!--        Goggle grafico.
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <script src="js/ggrafico.js" type="text/javascript"></script>-->
         <script src="js/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
         <script src="js/tinny.js" type="text/javascript"></script>
         <script src="<?= BASE ?>/js/shadowbox/shadowbox.js" type="text/javascript"></script>

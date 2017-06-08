@@ -13,6 +13,7 @@ class Logar {
 
     function __construct() {
 //        session_start();
+        $this->level = 1;
     }
 
     function getResultado() {
