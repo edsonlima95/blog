@@ -2,19 +2,25 @@
    /*ARTIGOS.*/
    main section.artigos .bloco-with {width: 100%}
    main section.artigos .bloco-img img {height: 196px}
+   
+   /*LOGO.*/
+   header.cabecalho > p a {display: none}
 }
 
 @media screen and (max-width:768px){
     /*MENU.*/
     nav.menu-lateral {display: none}
     /*TABELA.*/
-    
-
+   
 }
 
 @media screen and (min-width: 640px) and (max-width:959px){
     /*MENU.*/
     nav.menu-lateral {display: none}
+    
+    /*BOTAO OPEN MENU.*/
+    header.cabecalho .botao-open {display: block}
+    
     /*ESTATISTICAS.*/
     main section.admin article {width: 31%}
     /*ARTIGOS.*/
@@ -23,6 +29,7 @@
 }
 
 @media screen and (min-width: 960px) {
-
+    /*BOTAO OPEN MENU.*/
+    header.cabecalho .botao-open {display: none}
 }
 

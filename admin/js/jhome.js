@@ -5,7 +5,15 @@ $(function () {
         $(this).find('ul.sub-lateral').slideToggle('fast');
     });
     
+    //EFEITO MENU PERFIL.
+    $('.menu-perfil').find('ul li').click(function () {
+        $(this).find('ul.sub-perfil').slideToggle('fast');
+    });
     
+    //ABRE O MENU.
+    $('.botao-open').click(function () {
+        $('.menu-lateral').animate({width: 'toggle'});
+    });
 
     //ESTADOS E CIDADES.
     $('#estado').change(function () {

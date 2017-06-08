@@ -48,7 +48,7 @@ endif;
             echo '<div class="info">O post não contém uma galeria de imagens.</div>';
         endif;
         ?>
-        <div class="fb-comments" data-width="100%" data-href="http://localhost/blog/artigo/<?= $url ?>"></div>
+        <div class="fb-comments" data-width="100%" data-href="<?=BASE.'artigo/'. $url ?>"></div>
         <article class="relacionados">
             <!--Galeria.-->
             <h3 class="titulo-galeria">

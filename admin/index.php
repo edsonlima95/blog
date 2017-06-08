@@ -7,12 +7,22 @@ use app\helper\funcoes;
 
 require '../vendor/autoload.php';
 require '../app/config.php';
-
 $login = new Logar();
-if (!$login->checkSession()):
-    header('Location: login.php');
-endif;
 
+//DESLOGA DO SISTEMA.
+//$sair = filter_input(INPUT_GET, 'logoff', FILTER_DEFAULT);
+//if ($sair == true):
+////    unset($_SESSION['user']);
+//    header('Location: login.php?action=sair');
+//endif;
+
+//VERIFICA SE A SESSAO TA CRIADA.
+if (!$login->checkSession()):
+    unset($_SESSION['user']);
+    header('Location: login.php');
+else:
+    $user = $_SESSION['user'];
+endif;
 ?>
 <html>
     <head>
@@ -24,27 +34,27 @@ endif;
     </head>
     <body>
         <!--header.-->
-        <?php require 'inc/header.php';?>
-        
+        <?php require 'inc/header.php'; ?>
+
         <!--header.-->
-        <?php require 'inc/menu.php';?>
-        
+        <?php require 'inc/menu.php'; ?>
+
         <main class="grid-g-10 grid-m-12 grid-p-12" style="float: right; position: relative; min-height: 100%">
             <?php
-            $exe = filter_input(INPUT_GET,'exe',FILTER_DEFAULT);
+            $exe = filter_input(INPUT_GET, 'exe', FILTER_DEFAULT);
             funcoes::frontController($exe);
             ?>
-        <?php require 'inc/footer.php';?>
+            <?php require 'inc/footer.php'; ?>
         </main>
-       <!--footer.-->
+        <!--footer.-->
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/jgrids.js" type="text/javascript"></script>
         <script src="js/jhome.js" type="text/javascript"></script>
         <!--fontawesome.-->
         <script src="https://use.fontawesome.com/c148575fe9.js"></script>
-<!--        Goggle grafico.
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script src="js/ggrafico.js" type="text/javascript"></script>-->
+        <!--        Goggle grafico.
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script src="js/ggrafico.js" type="text/javascript"></script>-->
         <script src="js/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
         <script src="js/tinny.js" type="text/javascript"></script>
         <script src="<?= BASE ?>/js/shadowbox/shadowbox.js" type="text/javascript"></script>

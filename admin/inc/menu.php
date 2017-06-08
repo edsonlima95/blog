@@ -1,9 +1,9 @@
-<nav class="menu-lateral grid-g-2">  
+<nav class="menu-lateral grid-g-2 grid-m-4 grid-p-6">  
     <ul>
         <li class="img-perfil">
             <?php
-            $id = $_SESSION['user']['id'];
             use app\conn\read;
+            $id = $_SESSION['user']['id'];
             $readUserImg = new read();
             $readUserImg->ExeRead('usuarios',"WHERE id = :id","id={$id}");
             $userimg = $readUserImg->getResultado()[0]['capa'];        

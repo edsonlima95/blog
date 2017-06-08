@@ -3,11 +3,12 @@ body {height: 100%}
 /*HEADER.*/
 header.cabecalho {background: #232323; padding: 10px; height: 60px; position: fixed; z-index: 99}
 header.cabecalho > p a {float: left; line-height: 37px;margin-left: 51px;font-size: 25px;color: #08bdb6; text-decoration: none}
-header.cabecalho nav.menu-perfil ul {list-style: none; line-height: 38px; float: right; margin-right: 50px; }
+header.cabecalho nav.menu-perfil ul {list-style: none; line-height: 38px; float: right; margin-right: 50px;}
 header.cabecalho nav.menu-perfil ul li {position: relative}
 header.cabecalho nav.menu-perfil ul li a {color: #fff; text-decoration: none; margin-left: 10px}
 header.cabecalho nav.menu-perfil ul li i.fa-user {color: #fff;}
-header.cabecalho .botao-open {width: 27px; height: 0px; margin-left: 5px; color: #ccc}
+header.cabecalho nav.menu-perfil ul li ul.sub-perfil {position: absolute; top: 50; background: #232323; width: 100px; display: none}
+header.cabecalho .botao-open {width: 27px; height: 0px; margin-left: 5px; color: #ccc; cursor: pointer}
 
 /*MENU LATERAL.*/
 nav.menu-lateral {padding: 10px; height: 100%; background: #232323; border-top: 1px solid #ccc; position: fixed; top: 60px; z-index: 99}
@@ -60,6 +61,7 @@ table tbody a {color: #666; margin-right: 10px;}
 .estilo-form .galeria-imgs {margin-top: 50px; position: relative}
 .estilo-form .galeria-imgs a i.del {background: #000;padding: 10px;color: red; position: relative; top: -173;}
 
+/*PAGINAÇÃO.*/
 .paginator {float: left; background: #373737; margin-top: 30px}
 .paginator a {color: #fff; font-size: 25px; padding: 0 10px; text-decoration: none}
 .paginator a:hover {background: #289dcc;}
