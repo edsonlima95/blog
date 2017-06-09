@@ -58,7 +58,7 @@ class seo {
                     $this->seoDados = $readSeo->getResultado()[0];
 
                     //Seta os valores no setTags caso exista o artigo.
-                    $this->dados = [$titulo . ' | ' . SITENOME, $conteudo, "http://localhost/blog/artigo/{$url}", "'http://localhost/blog/view/img/site.png'"];
+                    $this->dados = [$titulo . ' | ' . SITENOME, $conteudo, BASE."artigo/{$url}", BASE.'view/img/site.png'];
                 endif;
                 break;
             case 'empresa':
@@ -74,7 +74,7 @@ class seo {
                     $this->seoDados = $readSeo->getResultado()[0];
 
                     //Seta os valores no setTags caso exista o artigo.
-                    $this->dados = [$titulo . ' | ' . SITENOME, $conteudo, "http://localhost/blog/empresa/{$url}", "http://localhost/blog/view/img/site.png"];
+                    $this->dados = [$titulo . ' | ' . SITENOME, $conteudo, BASE."empresa/{$url}", BASE."view/img/site.png"];
                 endif;
                 break;
             case'categorias':
@@ -90,7 +90,7 @@ class seo {
                     $this->seoDados = $readSeo->getResultado()[0];
 
                     //Seta os valores no setTags caso exista o artigo.
-                    $this->dados = [$titulo . ' | ' . SITENOME, $conteudo, "http://localhost/blog/categorias/{$nome}", 'http://localhost/blog/view/img/site.png'];
+                    $this->dados = [$titulo . ' | ' . SITENOME, $conteudo, BASE."categorias/{$nome}", BASE.'view/img/site.png'];
                 endif;
                 break;
             case 'pesquisa';
@@ -104,7 +104,7 @@ class seo {
                     $this->seoDados['count'] = $readSeo->getRowCount();
 
                     //Seta os valores no setTags caso exista o artigo.
-                    $this->dados = ["Pesquisa por: {$this->link} " . SITENOME, "Sua pesquisa por {$this->link} retornou {$this->seoDados['count']} resultados!", "http://localhost/blog/pesquisa/{$this->link}", 'http://localhost/blog/view/img/site.png'];
+                    $this->dados = ["Pesquisa por: {$this->link} " . SITENOME, "Sua pesquisa por {$this->link} retornou {$this->seoDados['count']} resultados!", BASE."pesquisa/{$this->link}", BASE.'view/img/site.png'];
                 endif;
                 break;
             case 'empresas';
@@ -122,10 +122,10 @@ class seo {
                 break;
             case 'index':
                 //Se não existir nenhum dos case vai seta esses default no meta.
-                $this->dados = [SITENOME . ' | Guida de noticias e empresas', SITEDESC, 'http://localhost/blog/', 'http://localhost/blog/uploads/perfil.png'];
+                $this->dados = [SITENOME . ' | Guida de noticias e empresas', SITEDESC,BASE, BASE.'view/img/site.png'];
                 break;
             default :
-                $this->dados = ['Opsssss nada encontrado!', ' Guida de noticias e empreasas', SITEDESC, 'http://localhost/cidadeonline/404', 'http://localhost/cidadeonline/view/img/site.png'];
+                $this->dados = ['Opsssss nada encontrado!', ' Guida de noticias e empreasas', SITEDESC, BASE.'404', BASE.'view/img/site.png'];
         endswitch;
 
         //Executa o setTags.
