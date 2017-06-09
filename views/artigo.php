@@ -27,6 +27,14 @@ endif;
             <time><i class="fa fa-calendar"> <?= date('d-m-Y', strtotime($data_criacao)); ?></i></time>
             <i class="fa fa-user criador"> <?= $autor ?></i>
         </div>
+
+        <!--BOTAO CURTIR DO FACEBOOK.-->
+        <div class="fb-like" data-href="<?=BASE.'artigo/'.$url?>" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+
+        <!--BOTAO COMPARTILHAR DO FACEBOOK.-->
+        <div class="fb-share-button" data-href="<?=BASE.'artigo/'.$url?>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fblog%2Fartigo%2Fnome&amp;src=sdkpreparse">Share</a></div>
+
+        
         <!--Galeria.-->
         <h3 class="titulo-galeria">
             <span>Galeria de Imagens</span>
@@ -48,7 +56,9 @@ endif;
             echo '<div class="info">O post não contém uma galeria de imagens.</div>';
         endif;
         ?>
-        <div class="fb-comments" data-width="100%" data-href="<?=BASE.'artigo/'. $url ?>"></div>
+        <!--BOTAO COMENTARIOS.-->
+        <div class="fb-comments" data-width="100%" data-href="<?= BASE . 'artigo/' . $url ?>"></div>
+        
         <article class="relacionados">
             <!--Galeria.-->
             <h3 class="titulo-galeria">
@@ -66,8 +76,8 @@ endif;
                     </div>
                     <?php
                 endforeach;
-                else:
-                    echo '<div class="info">O post não contém posts relacionados.</div>';
+            else:
+                echo '<div class="info">O post não contém posts relacionados.</div>';
             endif;
             ?>
         </article>
