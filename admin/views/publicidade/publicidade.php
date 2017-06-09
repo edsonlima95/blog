@@ -6,9 +6,11 @@
     use app\helper\files;
     use app\conn\create;
     use app\helper\funcoes;
-
-$file = new files();
-
+    use admin\models\publicidades;
+    
+//    $file = new files();
+    $publ = new publicidades();
+    
     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
     if (isset($dados) && $dados['enviar']):
@@ -19,20 +21,10 @@ $file = new files();
         else:
             $dados['caminho'] = $_FILES['caminho'];
             
-            //Envia a capa.
-            $file->enviarImagem($dados['caminho'], funcoes::Name($dados['nome']), 'publicidade');
-
-            //Salva no banco o caminho.
-            if (isset($file) && $file->getResultado()):
-                //SETA DADOS.
-                $dados['caminho'] = $file->getResultado();
-                $dados['data_criacao'] = date('Y-m-d H:i:s');
-                
-                //SALVA NO BANCO.
-                $create = new create();
-                $create->ExeCreate('publicidades', $dados);
-            endif;
-            if (!$create->getResultado()):
+            //Cadastra a imagem.
+            $publ->cadastraPub($dados);
+            
+            if (!$publ->getResultado()):
                 echo '<div class="alert">Erro ao tentar enviar a publicidade!<span class="x">X</span></div>';
             else:
                 echo '<div class="success">Publicidade cadastrada com sucesso!<span class="x">X</span></div>';

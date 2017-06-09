@@ -94,7 +94,7 @@
             <label for="textarea">Descrição <span style="color: red">*</span></label>
             <textarea name="conteudo" id="textarea" placeholder="Descrição"></textarea>
         </div>
-        <input type="submit" name="enviar" class="btn-green" value="Cadastrar">
         <input type="submit" name="enviar" class="btn-blue" value="Cadastrar e publicar">
+        <input type="submit" name="enviar" class="btn-green" value="Cadastrar">
     </form>
 </section>

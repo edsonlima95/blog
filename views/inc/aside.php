@@ -56,11 +56,11 @@ use app\conn\read;
         <div class="grid-g-12">
             <?php
             $readPub = new read();
-            $readPub->ExeRead('publicidades', "ORDER BY data_criacao LIMIT 6");
+            $readPub->ExeRead('publicidades', "ORDER BY data_criacao DESC LIMIT 5");
             foreach ($readPub->getResultado() as $resPub):
                 ?>
             <figure>
-                <img src="<?= BASE . 'uploads/' . $resPub['caminho'] ?>" alt="<?= $resPub['nome'] ?>" title="<?= $resPub['nome'] ?>" style="margin: 0 0 5px 0; height: 125px">
+                <img src="<?= BASE . 'uploads/' . $resPub['caminho'] ?>" alt="<?= $resPub['nome'] ?>" title="<?= $resPub['nome'] ?>" style="margin: 0 0 5px 0; height: 160px">
             </figure>
                 <?php
             endforeach;

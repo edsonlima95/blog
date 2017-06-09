@@ -31,19 +31,42 @@ $read->executeQuery('SELECT SUM(visitas_paginas) AS visitaspag FROM site_visitas
 $visitasPag = $read->getResultado()[0]['visitaspag'];
 
 //DELETA A PUBLICIDADE.
-
 ?>
 <section class="grid-g-12 grid-m-12 admin">
     <h1>Estatisticas</h1>
-    <article class="grid-g-3 grid-m-4"><i class="fa fa-users fa-3x"></i><p>Usuários <?=$numusuarios?></p></article>
+    <article class="grid-g-3 grid-m-4"><i class="fa fa-users fa-3x"></i><p>Usuários <?= $numusuarios ?></p></article>
     <article class="grid-g-3 grid-m-4" style="background: #289dcc"><i class="fa fa-edit fa-3x"></i><p>Posts <?= $numposts ?></p></article>
-    <article class="grid-g-3 grid-m-4" style="background: #777fce"><i class="fa fa-list-alt fa-3x"></i><p>Categorias <?=$numcategoria?></p></article>
-    <article class="grid-g-3 grid-m-4" style="background: #bd4cce"><i class="fa fa-eye fa-3x"></i><p>Visitas <?=$visitas?></p></article>
-    <article class="grid-g-3 grid-m-4" style="background: #dd5a5a"><i class="fa fa-eye fa-3x"></i><p>V. Páginas <?=$visitasPag?></p></article>
-    <article class="grid-g-3 grid-m-4" style="background: #bd0707"><i class="fa fa-building-o fa-3x"></i><p>Empresas <?=$numempresas?></p></article>
+    <article class="grid-g-3 grid-m-4" style="background: #777fce"><i class="fa fa-list-alt fa-3x"></i><p>Categorias <?= $numcategoria ?></p></article>
+    <article class="grid-g-3 grid-m-4" style="background: #bd4cce"><i class="fa fa-eye fa-3x"></i><p>Visitas <?= $visitas ?></p></article>
+    <article class="grid-g-3 grid-m-4" style="background: #dd5a5a"><i class="fa fa-eye fa-3x"></i><p>V. Páginas <?= $visitasPag ?></p></article>
+    <article class="grid-g-3 grid-m-4" style="background: #bd0707"><i class="fa fa-building-o fa-3x"></i><p>Empresas <?= $numempresas ?></p></article>
 </section>
 <section class="grid-g-4 grid-m-12 grid-p-12 artigos">
-     
+    <span class="titulo">Publicidades</span>
+    <?php
+    $gal = new galeria();
+    $readPub = new read();
+    
+    //DELETA A PUBLICIDADE.
+    $id = filter_input(INPUT_GET,'iddel',FILTER_VALIDATE_INT);
+    $gal->setGaleria('publicidades');
+    $gal->deleteGaleriaImg($id);
+   
+    if($gal->getResultado()):
+        echo '<div class="success">'.$gal->getError().'<span class="x">X</span></div>';
+    endif;
+    
+    //FAZ A LEITURA.
+    $readPub->ExeRead('publicidades',"ORDER BY data_criacao DESC LIMIT 5");
+    foreach ($readPub->getResultado() as $resPub):
+        ?>
+        <figure>
+            <img src="<?= BASE . 'uploads/' . $resPub['caminho'] ?>" alt="<?= $resPub['nome'] ?>" title="<?= $resPub['nome'] ?>" style="margin: 0 0 5px 0; width: 100%; height: 180px">
+
+        </figure>
+        <?php
+    endforeach;
+    ?>
 </section>
 <section class="grid-g-8 artigos">
     <div class="grid-g-6 grid-m-6 grid-p-12" style="margin-right: 10px">
@@ -55,13 +78,16 @@ $visitasPag = $read->getResultado()[0]['visitaspag'];
         foreach ($readPostsRecents->getResultado() as $resPosts):
             ?>
             <div class="grid-g-4 bloco-img">
-                <img src="<?php if($resPosts['capa']) echo BASE.'uploads/'.$resPosts['capa']; 
-                else echo '../uploads/posts/posts-default.png'; ?>" width="100%" height="78">
+                <img src="<?php if ($resPosts['capa'])
+            echo BASE . 'uploads/' . $resPosts['capa'];
+        else
+            echo '../uploads/posts/posts-default.png';
+        ?>" width="100%" height="78">
             </div>
             <div class="grid-g-8 bloco-conteudo">
                 <h1><a href="#"><?= funcoes::limtarTextos($resPosts['titulo'], 40) ?></a></h1>   
                 <ul class="acoes">
-                    <li><a href="<?= BASE.'artigo/'.$resPosts['url'] ?>"><i class="fa fa-eye"></i></a></li>
+                    <li><a href="<?= BASE . 'artigo/' . $resPosts['url'] ?>"><i class="fa fa-eye"></i></a></li>
                     <li><a href="index.php?exe=posts/update&idpost=<?= $resPosts['id'] ?>"><i class="fa fa-edit"></i></a></li>
                     <li><a href="index.php?exe=posts/index&action=deletar&iddelpost=<?= $resPosts['id'] ?>"><i class="fa fa-times"></i></a></li>
                 </ul>
@@ -79,19 +105,22 @@ $visitasPag = $read->getResultado()[0]['visitaspag'];
         foreach ($readEmpRecents->getResultado() as $resEmps):
             ?>
             <div class="grid-g-4 bloco-img">
-                <img src="<?php if($resEmps['capa']) echo BASE.'uploads/'.$resEmps['capa']; 
-                else echo '../uploads/empresas/empresas-default.jpg'; ?>" width="100%" height="78">
+                <img src="<?php if ($resEmps['capa'])
+                echo BASE . 'uploads/' . $resEmps['capa'];
+            else
+                echo '../uploads/empresas/empresas-default.jpg';
+            ?>" width="100%" height="78">
             </div>
             <div class="grid-g-8 bloco-conteudo">
                 <h1><a href="#"><?= $resEmps['titulo'] ?></a></h1> 
                 <ul class="acoes">
-                    <li><a href="<?=BASE.'empresa/'.$resEmps['url'] ?>"><i class="fa fa-eye"></i></a></li>
+                    <li><a href="<?= BASE . 'empresa/' . $resEmps['url'] ?>"><i class="fa fa-eye"></i></a></li>
                     <li><a href="index.php?exe=empresas/update&idemp=<?= $resEmps['id'] ?>"><i class="fa fa-edit"></i></a></li>
                     <li><a href="index.php?exe=empresas/index&iddelemp=<?= $resEmps['id'] ?>"><i class="fa fa-times"></i></a></li>
                 </ul>
             </div>
-            <?php
-        endforeach;
-        ?>
+    <?php
+endforeach;
+?>
     </div>
 </section>

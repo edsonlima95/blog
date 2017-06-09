@@ -51,22 +51,22 @@ $empresa = new empresa();
         </div>
 
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px;">
-            <label for="titulo">Nome </label>
+            <label for="titulo">Nome <span style="color: red">*</span></label>
             <input type="text" name="titulo" id="titulo" placeholder="Titulo">
         </div>
 
         <div class="grid-g-5 grid-m-5">
-            <label for="end">Endereço </label>
+            <label for="end">Endereço <span style="color: red">*</span></label>
             <input type="text" name="endereco" id="end" placeholder="Endereço">
         </div>
 
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px;">
-            <label for="bai">Bairro </label>
+            <label for="bai">Bairro <span style="color: red">*</span></label>
             <input type="text" name="bairro" id="bai" placeholder="Bairro">
         </div>
 
         <div class="grid-g-5 grid-m-5">
-            <label for="estado">Estado </label>
+            <label for="estado">Estado <span style="color: red">*</span></label>
             <select id="estado" name="estado">
                 <option value="" disabled="" selected="">Selecione uma categoria</option>
                 <?php
@@ -80,20 +80,20 @@ $empresa = new empresa();
         </div>
 
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px;">
-            <label for="cidade">Cidade </label>
+            <label for="cidade">Cidade <span style="color: red">*</span></label>
             <select id="cidade" name="cidade">
                 <option value="" disabled="" selected="">Selecione um estado!</option>
             </select>
         </div>
 
         <div class="grid-g-5 grid-m-5">
-            <label for="cont">Contato </label>
+            <label for="cont">Contato <span style="color: red">*</span></label>
             <input type="text" name="contato" id="cont" placeholder="Contato">
         </div>
 
 
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px">
-            <label for="cat">Categoria </label>
+            <label for="cat">Categoria <span style="color: red">*</span></label>
             <select id="cat" name="id_cat">
                 <option value="" selected="">Selecione uma categoria</option>
                 <?php
@@ -112,10 +112,10 @@ $empresa = new empresa();
         </div>
 
         <div class="grid-m-12">
-            <label for="textarea">Descrição</label>
+            <label for="textarea">Descrição <span style="color: red">*</span></label>
             <textarea name="conteudo" id="textarea" placeholder="Descrição"></textarea>
         </div>
-        <input type="submit" name="enviar" class="btn-green" value="Cadastrar">
         <input type="submit" name="enviar" class="btn-blue" value="Cadastrar e publicar">
+        <input type="submit" name="enviar" class="btn-green" value="Cadastrar">
     </form>
 </section>
