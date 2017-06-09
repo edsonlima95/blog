@@ -34,7 +34,6 @@ endif;
         <!--BOTAO COMPARTILHAR DO FACEBOOK.-->
         <div class="fb-share-button" data-href="<?=BASE.'artigo/'.$url?>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fblog%2Fartigo%2Fnome&amp;src=sdkpreparse">Share</a></div>
 
-        
         <!--Galeria.-->
         <h3 class="titulo-galeria">
             <span>Galeria de Imagens</span>
