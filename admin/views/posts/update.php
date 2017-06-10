@@ -64,12 +64,12 @@
             <input type="file" name="galeria[]" multiple id="gal" placeholder="Galeira" style="padding: 0px">
         </div>
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px;">
-            <label for="titulo">Titulo </label>
+            <label for="titulo">Titulo <span style="color: red">*</span></label>
             <input type="text" name="titulo" id="titulo" placeholder="Titulo" value="<?php if(isset($dados['titulo'])) echo $dados['titulo'];?>">
         </div>
 
         <div class="grid-g-5 grid-m-5">
-            <label for="cat">Categoria </label>
+            <label for="cat">Categoria <span style="color: red">*</span></label>
             <select id="cat" name="id_sub">
                 <option value="" disabled="" selected="">Selecione uma categoria</option>
                 <?php
@@ -90,9 +90,9 @@
         </div>
 
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px">
-            <label for="autor">Autor </label>
+            <label for="autor">Autor <span style="color: red">*</span></label>
             <select id="autor" name="autor">
-                <option value="" disabled="" selected="">Selecione um autor</option>
+                <option value="">Selecione um autor</option>
                 <?php
                 $readAutor = new read();
                 $readAutor->ExeRead('usuarios', "ORDER BY nome ASC");
@@ -111,7 +111,7 @@
         </div>
 
         <div class="grid-m-12">
-            <label for="textarea">Descrição</label>
+            <label for="textarea">Descrição <span style="color: red">*</span></label>
             <textarea name="conteudo" id="textarea" placeholder="Descrição"><?php if(isset($dados['conteudo'])) echo $dados['conteudo'];?></textarea>
         </div>
         

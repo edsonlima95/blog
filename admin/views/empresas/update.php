@@ -88,7 +88,7 @@
         <div class="grid-g-5 grid-m-5">
             <label for="estado">Estado </label>
             <select id="estado" name="estado">
-                <option value="" disabled="" selected="">Selecione uma categoria</option>
+                <option value="">Selecione uma categoria</option>
                 <?php
                 $readEstados = new read();
                 $readEstados->ExeRead('estados', "ORDER BY estado_nome ASC");

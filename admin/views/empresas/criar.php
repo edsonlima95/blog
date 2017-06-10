@@ -68,7 +68,7 @@ $empresa = new empresa();
         <div class="grid-g-5 grid-m-5">
             <label for="estado">Estado <span style="color: red">*</span></label>
             <select id="estado" name="estado">
-                <option value="" disabled="" selected="">Selecione uma categoria</option>
+                <option value="">Selecione uma categoria</option>
                 <?php
                 $readEstados = new read();
                 $readEstados->ExeRead('estados', "ORDER BY estado_nome ASC");
@@ -82,7 +82,7 @@ $empresa = new empresa();
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px;">
             <label for="cidade">Cidade <span style="color: red">*</span></label>
             <select id="cidade" name="cidade">
-                <option value="" disabled="" selected="">Selecione um estado!</option>
+                <option value="">Selecione um estado!</option>
             </select>
         </div>
 
@@ -95,7 +95,7 @@ $empresa = new empresa();
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px">
             <label for="cat">Categoria <span style="color: red">*</span></label>
             <select id="cat" name="id_cat">
-                <option value="" selected="">Selecione uma categoria</option>
+                <option value="">Selecione uma categoria</option>
                 <?php
                 $readCatEmp = new read();
                 $readCatEmp->ExeRead('categoria_empresas', "ORDER BY titulo ASC");

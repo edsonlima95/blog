@@ -74,7 +74,7 @@
         <div class="grid-g-5 grid-m-5" style="margin-right: 20px">
             <label for="autor">Autor <span style="color: red">*</span></label>
             <select id="autor" name="autor">
-                <option value="" selected="">Selecione um autor</option>
+                <option value="">Selecione um autor</option>
                 <?php
                 $readAutor = new read();
                 $readAutor->ExeRead('usuarios', "ORDER BY nome ASC");
