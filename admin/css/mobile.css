@@ -9,7 +9,8 @@
 
 @media screen and (max-width:768px){
     /*MENU.*/
-    nav.menu-lateral {display: none}
+    nav.menu-lateral {display: none; width: 195px}
+    
     /*TABELA.*/
    
 }
