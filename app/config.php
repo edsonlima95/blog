@@ -1,7 +1,10 @@
 <?php
 
-define('INLCUDE', 'http://localhost/blog/views');
-define('BASE', 'http://localhost/blog/');
+//http://localhost/blog/views
+//http://localhost/blog/
+
+define('INLCUDE', 'https://cidadenewsblog.000webhostapp.com/views');
+define('BASE', 'https://cidadenewsblog.000webhostapp.com/');
 define('PATH', 'views/');
 
 //SITE.
