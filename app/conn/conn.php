@@ -12,9 +12,9 @@ class conn {
      */
 
     private static $host = 'localhost';
-    private static $user = 'id1842962_root';
-    private static $password = '12345';
-    private static $db = 'id1842962_cidadenews';
+    private static $user = 'root';
+    private static $password = '';
+    private static $db = 'cidadenews';
 
     /** @var PDO tenho que informa que e uma var tipo PDO se nao, ele nao reconhece */
     private static $conexao = null;

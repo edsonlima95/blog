@@ -4,7 +4,7 @@
 //http://localhost/blog/
 
 define('INLCUDE', 'https://cidadenewsblog.000webhostapp.com/views');
-define('BASE', 'https://cidadenewsblog.000webhostapp.com/');
+define('BASE', 'https://cidadenewsblog.000webhostapp.com/blog/');
 define('PATH', 'views/');
 
 //SITE.

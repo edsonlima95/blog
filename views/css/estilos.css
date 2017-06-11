@@ -15,6 +15,12 @@ section.conteudo-esquerdo  .cat3 h3.titulo-cat3 span {background-color: #777fce}
 /*MAIN;*/
 main {width: 100%; background: #fff; margin: auto;}
 
+/*PARTE DA CIDADE.*/
+main section.cidade-regiao {padding: 15px}
+main section.cidade-regiao h1.titulo {text-align: center; margin-bottom: 20px; background: #383636; color: #fff; padding: 5px; border-radius: 5px;}
+main section.cidade-regiao article {width: 31%; margin-right: 10px}
+
+
 /*HEADER.*/
 header#cabecalho .logo, header#cabecalho .busca  {background: #fff; height: 180px;}
 header#cabecalho .logo a {text-decoration: none; color: #000}

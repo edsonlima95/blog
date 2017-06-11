@@ -51,11 +51,11 @@ class funcoes {
         self::$dados = (isset($tabela) ? $tabela : 'categorias');
         $novo = ucfirst($nome);
         $read = new read();
-        $read->ExeRead(self::$dados, "WHERE nome = :nome", "nome={$novo}");
+        $read->ExeRead(self::$dados, "WHERE nome LIKE '%' :nome '%'", "nome={$novo}");
         if ($read->getResultado()):
             return $read->getResultado()[0]['id'];
         else:
-            echo "Nenhuma categoria encontrada com o nome <strong>{$nome}</strong>";
+            return false;
         endif;
     }
 
