@@ -19,7 +19,7 @@ nav.menu-lateral ul li a:hover {background: #0dada6}
 nav.menu-lateral ul li i {float: right; line-height: 21px}
 nav.menu-lateral ul li img {border-radius: 50%; border: 2px solid #ccc; margin-bottom: 10px;}
 nav.menu-lateral ul li a {color: #ccc; text-decoration: none; display: block; cursor: pointer; padding: 10px}
-nav.menu-lateral ul.sub-lateral {display: none; background: #232323; padding: 5px}
+nav.menu-lateral ul.sub-lateral {display: none; background: #232323; padding: 5px; margin-top: 0px}
 nav.menu-lateral ul.sub-lateral li {border-bottom: none; text-align: left; margin-left: 20px}
 
 /*PRINCIPAL.*/
