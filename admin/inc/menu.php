@@ -40,10 +40,6 @@
                 <li><a href="index.php?exe=empresas/index">Editar e excluir</a></li>
             </ul>
         </li>
-        <li><a>link1 <i class="fa fa-chevron-right"></i></a></li>
-        <li><a>link1 <i class="fa fa-chevron-right"></i></a></li>
-        <li><a>link1 <i class="fa fa-chevron-right"></i></a></li>
-        <li><a>link1 <i class="fa fa-chevron-right"></i></a></li>
         <li><a>Publicidade <i class="fa fa-chevron-right"></i></a>
             <ul class="sub-lateral">
                 <li><a href="index.php?exe=publicidade/publicidade">Criar nova</a></li>
