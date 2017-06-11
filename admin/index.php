@@ -31,6 +31,7 @@ endif;
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="css/grids.css" rel="stylesheet" type="text/css"/>
         <link href="css/mobile.css" rel="stylesheet" type="text/css"/>
