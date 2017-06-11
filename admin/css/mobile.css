@@ -16,7 +16,7 @@
 
 @media screen and (min-width: 640px) and (max-width:959px){
     /*MENU.*/
-    nav.menu-lateral {display: none}
+    nav.menu-lateral {display: none; width: 195px}
     
     /*BOTAO OPEN MENU.*/
     header.cabecalho .botao-open {display: block}
@@ -25,6 +25,7 @@
     main section.admin article {width: 31%}
     /*ARTIGOS.*/
     main section.artigos .bloco-img img {height: 196px}
+    
     
 }
 
